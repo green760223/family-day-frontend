@@ -1,5 +1,6 @@
 import { Navigate, createBrowserRouter } from "react-router-dom"
 import SignIn from "../views/signin/SignIn"
+import Welcome from "../views/welcome/Welcome"
 
 export const router = [
   {
@@ -9,6 +10,10 @@ export const router = [
   {
     path: "/login",
     element: <SignIn />,
+  },
+  {
+    path: "/welcome",
+    element: <Welcome />,
   },
   // {
   //   element: <Layout />,
