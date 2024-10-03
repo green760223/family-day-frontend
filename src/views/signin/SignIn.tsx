@@ -48,6 +48,7 @@ const SignIn = () => {
                   backgroundColor: "#c30a3d",
                   color: "#ffffff",
                   marginTop: "60px",
+                  border: "none",
                 }}>
                 登入報到
               </Button>
