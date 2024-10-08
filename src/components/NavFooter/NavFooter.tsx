@@ -3,7 +3,8 @@ import {
   AppOutline,
   MessageOutline,
   UnorderedListOutline,
-  UserOutline,
+  SystemQRcodeOutline,
+  CompassOutline,
 } from "antd-mobile-icons"
 import styles from "../NavFooter/NavFooter.module.less"
 
@@ -17,18 +18,18 @@ const NavFooter = () => {
     },
     {
       title: "遊樂園",
-      key: "park",
-      icon: <UnorderedListOutline />,
+      key: "game",
+      icon: <CompassOutline />,
     },
     {
       title: "活動",
       key: "activity",
-      icon: <MessageOutline />,
+      icon: <UnorderedListOutline />,
     },
     {
-      title: "我的",
-      key: "me",
-      icon: <UserOutline />,
+      title: "票券",
+      key: "ticket",
+      icon: <SystemQRcodeOutline />,
     },
   ]
 
