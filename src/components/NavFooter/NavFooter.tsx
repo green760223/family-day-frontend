@@ -1,0 +1,46 @@
+import { TabBar } from "antd-mobile"
+import {
+  AppOutline,
+  MessageOutline,
+  UnorderedListOutline,
+  UserOutline,
+} from "antd-mobile-icons"
+import styles from "../NavFooter/NavFooter.module.less"
+
+const NavFooter = () => {
+  // Define the tabs
+  const tabs = [
+    {
+      title: "首頁",
+      key: "home",
+      icon: <AppOutline />,
+    },
+    {
+      title: "遊樂園",
+      key: "park",
+      icon: <UnorderedListOutline />,
+    },
+    {
+      title: "活動",
+      key: "activity",
+      icon: <MessageOutline />,
+    },
+    {
+      title: "我的",
+      key: "me",
+      icon: <UserOutline />,
+    },
+  ]
+
+  return (
+    <div className={styles.wrapper}>
+      <TabBar>
+        {tabs.map((item) => (
+          <TabBar.Item key={item.key} icon={item.icon} title={item.title} />
+        ))}
+      </TabBar>
+    </div>
+  )
+}
+
+export default NavFooter
