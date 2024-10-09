@@ -1,6 +1,11 @@
 import { Navigate, createBrowserRouter } from "react-router-dom"
 import SignIn from "../views/signin/SignIn"
 import Welcome from "../views/welcome/Welcome"
+import Layout from "../layout/LayoutFC"
+import { Outlet } from "react-router-dom"
+import Activity from "../views/activity/Activity"
+import Ticket from "../views/ticket/Ticket"
+import Game from "../views/game/Game"
 
 export const router = [
   {
@@ -12,55 +17,27 @@ export const router = [
     element: <SignIn />,
   },
   {
-    path: "/welcome",
-    element: <Welcome />,
+    element: <Layout />,
+    id: "layout",
+    children: [
+      {
+        path: "/welcome",
+        element: <Welcome />,
+      },
+      {
+        path: "/game",
+        element: <Game />,
+      },
+      {
+        path: "/activity",
+        element: <Activity />,
+      },
+      {
+        path: "/ticket",
+        element: <Ticket />,
+      },
+    ],
   },
-  // {
-  //   element: <Layout />,
-  //   id: "layout",
-  //   children: [
-  //     {
-  //       path: "/student",
-  //       element: <StudentDashboard />,
-  //     },
-  //     {
-  //       path: "/teacher",
-  //       element: <TeacherDashboard />,
-  //     },
-  //     {
-  //       path: "/math",
-  //       element: <MathList />,
-  //     },
-  //     {
-  //       path: "/history",
-  //       element: <HistoryList />,
-  //     },
-  //     {
-  //       path: "/science",
-  //       element: <ScienceList />,
-  //     },
-  //     {
-  //       path: "/english",
-  //       element: <EnglishList />,
-  //     },
-  //     {
-  //       path: "/computer",
-  //       element: <ComputerScienceList />,
-  //     },
-  //     {
-  //       path: "/music",
-  //       element: <MusicList />,
-  //     },
-  //     {
-  //       path: "/physical",
-  //       element: <PhysicakEducationList />,
-  //     },
-  //     {
-  //       path: "/other",
-  //       element: <OtherCourseList />,
-  //     },
-  //   ],
-  // },
   // {
   //   path: "*",
   //   element: <Navigate to='/404' />,

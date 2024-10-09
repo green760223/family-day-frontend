@@ -1,7 +1,6 @@
 import { TabBar } from "antd-mobile"
 import {
   AppOutline,
-  MessageOutline,
   UnorderedListOutline,
   SystemQRcodeOutline,
   CompassOutline,
