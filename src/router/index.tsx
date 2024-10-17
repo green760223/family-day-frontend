@@ -20,7 +20,7 @@ export const router = [
     id: "layout",
     children: [
       {
-        path: "/welcome",
+        path: "/home",
         element: <Welcome />,
       },
       {
