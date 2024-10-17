@@ -1,5 +1,5 @@
 import { Form, Input, Button, Image } from "antd-mobile"
-import { MobileOutlined, UserOutlined } from "@ant-design/icons"
+import { MobileOutlined } from "@ant-design/icons"
 import styles from "./SignIn.module.less"
 import { useNavigate } from "react-router-dom"
 import Swal from "sweetalert2"
@@ -12,8 +12,8 @@ const SignIn = () => {
 
     Swal.fire({
       icon: "success",
-      title: "報到成功",
-      text: "歡迎來到豐趣遊樂園",
+      title: "報到成功！",
+      text: "歡迎參加2024豐藝集團家庭日",
       showConfirmButton: false,
       timer: 2000,
       timerProgressBar: true,
@@ -31,7 +31,11 @@ const SignIn = () => {
             src='/src/assets/logo/promate-logo.png'
             fit='cover'
           />
-          <p className={styles.font}>豐趣遊樂園、藝起HIGH翻天</p>
+          <p className={styles.font}>
+            <span className={styles.fontColor}>豐</span>富人生{" "}
+            <span className={styles.fontColor}>藝</span>遊世界 <br />{" "}
+            <span className={styles.subFont}>2024 豐藝集團家庭日</span>
+          </p>
         </div>
 
         <div className={styles.footer}>
@@ -47,23 +51,17 @@ const SignIn = () => {
                 style={{
                   backgroundColor: "#c30a3d",
                   color: "#ffffff",
-                  marginTop: "120px",
+                  marginTop: "100px",
                   border: "none",
                 }}>
                 登入報到
               </Button>
             }>
             <Form.Item
-              name='employeeId'
-              label={<UserOutlined className={styles.prefixIcon} />}
-              rules={[{ required: true, message: "員工編號不能為空" }]}>
-              <Input onChange={console.log} placeholder='请输入員工編號' />
-            </Form.Item>
-            <Form.Item
               name='cellphone'
               label={<MobileOutlined className={styles.prefixIcon} />}
               rules={[{ required: true, message: "手機號碼不能為空" }]}>
-              <Input onChange={console.log} placeholder='请输入手機號碼' />
+              <Input onChange={console.log} placeholder='請輸入手機號碼' />
             </Form.Item>
           </Form>
         </div>

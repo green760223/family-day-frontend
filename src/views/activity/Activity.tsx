@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react"
-import { Steps, Space, Button } from "antd-mobile"
+import { Steps, Space, Button, NoticeBar } from "antd-mobile"
 import { CheckCircleFill } from "antd-mobile-icons"
 import styles from "./Activity.module.less"
 import Swal from "sweetalert2"
 
 const Activity = () => {
   const { Step } = Steps
-  const [isNotification, setIsNotification] = useState(false)
+  const [isNotification, setIsNotification] = useState(true)
 
   useEffect(() => {
     if (isNotification) {
@@ -21,7 +21,7 @@ const Activity = () => {
   }, [isNotification])
 
   return (
-    <div className={styles.wrapper}>
+    <div>
       <Steps
         direction='vertical'
         current={1}

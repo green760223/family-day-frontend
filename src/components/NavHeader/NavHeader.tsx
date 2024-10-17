@@ -4,7 +4,7 @@ import styles from "./NavHeader.module.less"
 const NavHeader = () => {
   return (
     <div className={styles.header}>
-      <NavBar back={null}>豐趣遊樂園</NavBar>
+      <NavBar back={null}>豐富人生 藝遊世界</NavBar>
     </div>
   )
 }
