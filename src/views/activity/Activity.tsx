@@ -1,11 +1,12 @@
 import { Steps, Space, Button } from "antd-mobile"
 import { CheckCircleFill } from "antd-mobile-icons"
+import styles from "./Activity.module.less"
 
 const Activity = () => {
   const { Step } = Steps
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       <Steps
         direction='vertical'
         current={1}
