@@ -18,7 +18,7 @@ const SignIn = () => {
       timer: 2000,
       timerProgressBar: true,
     }).then(() => {
-      navigate("/welcome")
+      navigate("/home")
     })
   }
 

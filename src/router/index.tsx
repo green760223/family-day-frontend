@@ -1,6 +1,6 @@
 import { Navigate, createBrowserRouter } from "react-router-dom"
 import SignIn from "../views/signin/SignIn"
-import Welcome from "../views/welcome/Welcome"
+import Home from "../views/home/Home"
 import Layout from "../layout/LayoutFC"
 import Activity from "../views/activity/Activity"
 import Ticket from "../views/ticket/Ticket"
@@ -21,7 +21,7 @@ export const router = [
     children: [
       {
         path: "/home",
-        element: <Welcome />,
+        element: <Home />,
       },
       {
         path: "/game",

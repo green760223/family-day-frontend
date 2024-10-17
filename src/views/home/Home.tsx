@@ -1,6 +1,6 @@
-import styles from "./Welcome.module.less"
+// import styles from "./Welcome.module.less"
 
-const Welcome = () => {
+const Home = () => {
   return (
     <div>
       Test, Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident
@@ -65,4 +65,4 @@ const Welcome = () => {
   )
 }
 
-export default Welcome
+export default Home
