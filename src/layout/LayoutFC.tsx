@@ -8,11 +8,9 @@ const LayoutFC = () => {
   return (
     <Layout className={styles.layout}>
       <NavHeader />
-
       <div className={styles.content}>
         <Outlet />
       </div>
-
       <NavFooter />
     </Layout>
   )
