@@ -1,14 +1,66 @@
-import NavFooter from "../../components/NavFooter/NavFooter"
 import styles from "./Welcome.module.less"
 
 const Welcome = () => {
   return (
-    <div className={styles.wrapper}>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi optio
-      adipisci, architecto sint est, minima obcaecati laborum laudantium et
-      corporis facere! Excepturi eos ullam laboriosam aliquam voluptas. Ipsa,
-      mollitia cum.
-      <NavFooter />
+    <div>
+      Test, Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident
+      nisi, natus nam iure eos dignissimos vitae dolorum corporis atque. Natus
+      pariatur quo animi, dolorem dicta quisquam in consequuntur. Inventore,
+      doloribus? Test, Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+      Provident nisi, natus nam iure eos dignissimos vitae dolorum corporis
+      atque. Natus pariatur quo animi, dolorem dicta quisquam in consequuntur.
+      Inventore, doloribus? Test, Lorem ipsum dolor, sit amet consectetur
+      adipisicing elit. Provident nisi, natus nam iure eos dignissimos vitae
+      dolorum corporis atque. Natus pariatur quo animi, dolorem dicta quisquam
+      in consequuntur. Inventore, doloribus? Test, Lorem ipsum dolor, sit amet
+      consectetur adipisicing elit. Provident nisi, natus nam iure eos
+      dignissimos vitae dolorum corporis atque. Natus pariatur quo animi,
+      dolorem dicta quisquam in consequuntur. Inventore, doloribus? Test, Lorem
+      ipsum dolor, sit amet consectetur adipisicing elit. Provident nisi, natus
+      nam iure eos dignissimos vitae dolorum corporis atque. Natus pariatur quo
+      animi, dolorem dicta quisquam in consequuntur. Inventore, doloribus? Test,
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident nisi,
+      natus nam iure eos dignissimos vitae dolorum corporis atque. Natus
+      pariatur quo animi, dolorem dicta quisquam in consequuntur. Inventore,
+      doloribus? Test, Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+      Provident nisi, natus nam iure eos dignissimos vitae dolorum corporis
+      atque. Natus pariatur quo animi, dolorem dicta quisquam in consequuntur.
+      Inventore, doloribus? Test, Lorem ipsum dolor, sit amet consectetur
+      adipisicing elit. Provident nisi, natus nam iure eos dignissimos vitae
+      dolorum corporis atque. Natus pariatur quo animi, dolorem dicta quisquam
+      in consequuntur. Inventore, doloribus? Test, Lorem ipsum dolor, sit amet
+      consectetur adipisicing elit. Provident nisi, natus nam iure eos
+      dignissimos vitae dolorum corporis atque. Natus pariatur quo animi,
+      dolorem dicta quisquam in consequuntur. Inventore, doloribus? Test, Lorem
+      ipsum dolor, sit amet consectetur adipisicing elit. Provident nisi, natus
+      nam iure eos dignissimos vitae dolorum corporis atque. Natus pariatur quo
+      animi, dolorem dicta quisquam in consequuntur. Inventore, doloribus? Test,
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident nisi,
+      natus nam iure eos dignissimos vitae dolorum corporis atque. Natus
+      pariatur quo animi, dolorem dicta quisquam in consequuntur. Inventore,
+      doloribus? Test, Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+      Provident nisi, natus nam iure eos dignissimos vitae dolorum corporis
+      atque. Natus pariatur quo animi, dolorem dicta quisquam in consequuntur.
+      Inventore, doloribus? Test, Lorem ipsum dolor, sit amet consectetur
+      adipisicing elit. Provident nisi, natus nam iure eos dignissimos vitae
+      dolorum corporis atque. Natus pariatur quo animi, dolorem dicta quisquam
+      in consequuntur. Inventore, doloribus? Test, Lorem ipsum dolor, sit amet
+      consectetur adipisicing elit. Provident nisi, natus nam iure eos
+      dignissimos vitae dolorum corporis atque. Natus pariatur quo animi,
+      dolorem dicta quisquam in consequuntur. Inventore, doloribus? Test, Lorem
+      ipsum dolor, sit amet consectetur adipisicing elit. Provident nisi, natus
+      nam iure eos dignissimos vitae dolorum corporis atque. Natus pariatur quo
+      animi, dolorem dicta quisquam in consequuntur. Inventore, doloribus? Test,
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident nisi,
+      natus nam iure eos dignissimos vitae dolorum corporis atque. Natus
+      pariatur quo animi, dolorem dicta quisquam in consequuntur. Inventore,
+      doloribus? Test, Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+      Provident nisi, natus nam iure eos dignissimos vitae dolorum corporis
+      atque. Natus pariatur quo animi, dolorem dicta quisquam in consequuntur.
+      Inventore, doloribus? Test, Lorem ipsum dolor, sit amet consectetur
+      adipisicing elit. Provident nisi, natus nam iure eos dignissimos vitae
+      dolorum corporis atque. Natus pariatur quo animi, dolorem dicta quisquam
+      in consequuntur. Inventore, doloribus?testtesttesttesttesttest
     </div>
   )
 }
