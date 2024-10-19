@@ -28,7 +28,7 @@ const SignIn = () => {
         <div>
           <Image
             className={styles.logo}
-            src='/src/assets/logo/promate-logo.png'
+            src='/logo/promate-logo.png'
             fit='cover'
           />
           <p className={styles.font}>
