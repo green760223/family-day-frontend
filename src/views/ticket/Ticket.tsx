@@ -11,9 +11,9 @@ const Ticket = () => {
     }
   }, [isUsed])
 
-  const onClick = () => {
-    Toast.show("点击了卡片")
-  }
+  // const onClick = () => {
+  //   Toast.show("点击了卡片")
+  // }
 
   const onHeaderClick = () => {
     Toast.show("点击了卡片Header区域")
