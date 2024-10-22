@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react"
-import { Card, Button, Image, Toast, WaterMark } from "antd-mobile"
+import { Card, Button, Image, Toast, WaterMark, Divider } from "antd-mobile"
 import styles from "../ticket/Ticket.module.less"
 
 const Ticket = () => {
   const [isUsed, setIsUsed] = useState(false)
+  const [adultCount, setAdultCount] = useState(1)
+  const [childCount, setChildCount] = useState(2)
+  const [seniorCount, setSeniorCount] = useState(1)
 
   useEffect(() => {
     if (isUsed) {
@@ -36,6 +39,32 @@ const Ticket = () => {
         onHeaderClick={onHeaderClick}
         style={{ "--adm-card-header-border-width": "0px" } as any}>
         <div className={styles.content}>
+          <div className={styles.participants}>
+            <div className={styles.category}>
+              {/* 成人 */}
+              <div className={styles.categoryItem}>
+                <div className={styles.categoryItemTitle}>成人</div>
+                <div className={styles.categoryItemText}>{adultCount}</div>
+              </div>
+
+              <Divider direction='vertical' />
+
+              {/* 孩童 */}
+              <div className={styles.categoryItem}>
+                <div className={styles.categoryItemTitle}>孩童</div>
+                <div className={styles.categoryItemText}>{childCount}</div>
+              </div>
+
+              <Divider direction='vertical' />
+
+              {/* 博愛 */}
+              <div className={styles.categoryItem}>
+                <div className={styles.categoryItemTitle}>博愛</div>
+                <div className={styles.categoryItemText}>{seniorCount}</div>
+              </div>
+            </div>
+          </div>
+
           {/* <Image src='/qr-code/qr_code_RD007.png' fit='contain' /> */}
           {/* 將 WaterMark 元素包裹在 Image 外層 */}
           <div className={styles.imageWrapper}>
@@ -52,7 +81,6 @@ const Ticket = () => {
                 fullPage={false}
               />
             )}
-
             <Image src='/qr-code/qr_code_RD007.png' fit='contain' />
           </div>
         </div>
