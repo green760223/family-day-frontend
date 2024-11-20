@@ -4,9 +4,9 @@ import styles from "../ticket/Ticket.module.less"
 
 const Ticket = () => {
   const [isUsed, setIsUsed] = useState(false)
-  const [adultCount, setAdultCount] = useState(1)
-  const [childCount, setChildCount] = useState(2)
-  const [seniorCount, setSeniorCount] = useState(1)
+  const [adultCount, _setAdultCount] = useState(1)
+  const [childCount, _setChildCount] = useState(2)
+  const [seniorCount, _setSeniorCount] = useState(1)
 
   useEffect(() => {
     if (isUsed) {
