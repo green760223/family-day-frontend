@@ -8,7 +8,7 @@ export default defineConfig({
   server: {
     host: "localhost",
     proxy: {
-      "/api": "http://api-driver.marsview.cc",
+      "/api": "http://127.0.0.1:8000/api/v1",
     },
   },
   resolve: {
