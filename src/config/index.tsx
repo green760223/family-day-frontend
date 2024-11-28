@@ -1,3 +1,7 @@
+/**
+ * @description: 環境配置
+ */
+
 type ENV = "dev" | "stg" | "prod"
 
 const env = (document.documentElement.dataset.env as ENV) || "stg"
