@@ -8,21 +8,21 @@ const env = (document.documentElement.dataset.env as ENV) || "stg"
 
 const config = {
   dev: {
-    baseAPI: "/api",
+    baseAPI: "http://127.0.0.1:8000/api/v1",
     uploadAPI: "",
     mock: false,
     cnd: "",
     mockAPI: "",
   },
   stg: {
-    baseAPI: "/api",
+    baseAPI: "http://127.0.0.1:8000/api/v1",
     uploadAPI: "",
     mock: false,
     cnd: "",
     mockAPI: "",
   },
   prod: {
-    baseAPI: "",
+    baseAPI: "https://family-day-backend.onrender.com/api/v1",
     uploadAPI: "",
     mock: false,
     cnd: "",
