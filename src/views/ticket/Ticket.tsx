@@ -7,6 +7,7 @@ const Ticket = () => {
   const [adultCount, _setAdultCount] = useState(1)
   const [childCount, _setChildCount] = useState(2)
   const [seniorCount, _setSeniorCount] = useState(1)
+  const [infant, _setInfant] = useState(1)
 
   useEffect(() => {
     if (isUsed) {

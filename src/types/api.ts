@@ -3,8 +3,7 @@
  */
 
 export interface Result<T = any> {
-  access: string
-  refresh: string
+  access_token: string
   data?: T
 }
 

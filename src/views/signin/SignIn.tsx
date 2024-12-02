@@ -4,19 +4,83 @@ import styles from "./SignIn.module.less"
 import { useNavigate } from "react-router-dom"
 import Swal from "sweetalert2"
 import api from "../../api"
-import { Login } from "../../types/api"
+import { Login, Result } from "../../types/api"
 import storage from "../../utils/storage"
+import { useStore } from "../../store"
+import { useEffect } from "react"
 
 const SignIn = () => {
   const navigate = useNavigate()
   const MOBILE_LENGTH = 10
-  const MOBILE_TEST = "0912345678"
+  const updateToken = useStore(state => state.updateToken)
 
-  console.log("SignIn component loaded")
+  // Check if the token is expired or not
+  useEffect(() => {
+    verifyToken()
+  }, [])
 
+  // Verify the token
+  const verifyToken = async () => { 
+    const token = storage.get("token")
+    const res = await api.verifyToken(token)
+    console.log("verifyToken triggered", res)
+    // if (res.status === 401) {
+    //   try {
+    //     const data: Result = await api.verifyToken(token)
+    //     console.log("verifyToken triggered", data.access_token)
+    //     updateToken(data.access_token)
+    //   } catch (error) {
+    //     console.error("Unexpected error:", error)
+    //   }
+    // }
+  }
+
+  // Login function
   const onLoginFinished = async (values: Login.Params) => {
-    const data = await api.login(values)
-    console.log("onLoginFinished triggered", values, data)
+
+    // Check if the mobile number is empty or not
+    if (!values.mobile || values.mobile.length !== MOBILE_LENGTH) {
+      return Swal.fire({
+        icon: "error",
+        title: "報到失敗！",
+        text: "手機號碼或格式錯誤，請重新輸入或請洽工作人員",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+      })
+    }
+
+    // Call the login API
+    try {
+      const data: Result = await api.login(values)
+      console.log("onLoginFinished triggered", data.access_token)
+    
+      storage.set("token", data.access_token)
+      updateToken(data.access_token)
+
+      await Swal.fire({
+        icon: "success",
+        title: "報到成功！",
+        text: "歡迎參加2024豐藝集團家庭日",
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+      }).then(() => {
+        navigate("/home")
+      })
+    
+    } catch (error) {
+      console.error("Unexpected error:", error)
+
+      await Swal.fire({
+        icon: "error",
+        title: "報到失敗！",
+        text: "請重新輸入或請洽工作人員",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+      })
+    }
 
     //   console.log("onLoginFinished triggered", values)
 

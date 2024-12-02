@@ -12,7 +12,7 @@ const instance = axios.create({
 // Request interceptors
 instance.interceptors.request.use(
   (config) => {
-    const accessToken = storage.get("accessToken")
+    const accessToken = storage.get("token")
     if (accessToken) {
       config.headers["Authorization"] = `Bearer ${accessToken}`
     }
@@ -41,10 +41,9 @@ instance.interceptors.response.use(
       error.response?.status === 401 &&
       error.response?.data?.code === "Token has expired"
     ) {
-      storage.remove("accessToken")
-      storage.remove("refreshToken")
+      storage.remove("token")
       // Redirect to login page
-      window.location.href = "/#/login"
+      window.location.href = "/login"
     }
 
     return Promise.reject(error)
