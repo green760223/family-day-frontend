@@ -12,7 +12,7 @@ const Home = () => {
   ]
 
   const items = imgsURL.map((img, index) => (
-    <Swiper.Item key={index}>
+    <Swiper.Item key={index} >
       <div
         onClick={() => {
           Toast.show(`你點擊了卡片 ${index + 1}`)
@@ -42,6 +42,7 @@ const Home = () => {
         loop
         autoplay
         autoplayInterval={5000}
+        style={{"--border-radius": "10px"}}
         onIndexChange={(i, ) => {
           console.log(i, "onIndexChange1")
         }}>
