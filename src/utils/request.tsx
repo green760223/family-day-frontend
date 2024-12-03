@@ -51,7 +51,7 @@ instance.interceptors.response.use(
     ) {
       storage.remove("token")
       // Redirect to login page
-      window.location.href = "/login"
+      window.location.href = "/#/login"
     }
 
     return Promise.reject(error)

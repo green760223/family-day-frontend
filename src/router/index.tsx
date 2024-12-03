@@ -1,4 +1,4 @@
-import { Navigate, createBrowserRouter } from "react-router-dom"
+import { Navigate, createHashRouter } from "react-router-dom"
 import SignIn from "../views/signin/SignIn"
 import NotFound from "../views/NotFound"
 import Home from "../views/home/Home"
@@ -53,4 +53,4 @@ export const router = [
   }
 ]
 
-export default createBrowserRouter(router)
+export default createHashRouter(router)
