@@ -7,7 +7,7 @@ const Ticket = () => {
   const [adultCount, _setAdultCount] = useState(1)
   const [childCount, _setChildCount] = useState(2)
   const [seniorCount, _setSeniorCount] = useState(1)
-  const [infant, _setInfant] = useState(1)
+  const [infantCount, _setInfantCount] = useState(1)
 
   useEffect(() => {
     if (isUsed) {
@@ -62,6 +62,14 @@ const Ticket = () => {
               <div className={styles.categoryItem}>
                 <div className={styles.categoryItemTitle}>博愛</div>
                 <div className={styles.categoryItemText}>{seniorCount}</div>
+              </div>
+
+              <Divider direction='vertical' />
+
+              {/* 幼童 */}
+              <div className={styles.categoryItem}>
+                <div className={styles.categoryItemTitle}>幼童</div>
+                <div className={styles.categoryItemText}>{infantCount}</div>
               </div>
             </div>
           </div>

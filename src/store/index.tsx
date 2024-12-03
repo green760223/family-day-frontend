@@ -1,5 +1,4 @@
 import { create } from 'zustand'
-import { Login } from '../types/api'
 // import storage from '../utils/storage'
 
 export const useStore = create<{
