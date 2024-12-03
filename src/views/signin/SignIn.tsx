@@ -7,33 +7,13 @@ import api from "../../api"
 import { Login, Result } from "../../types/api"
 import storage from "../../utils/storage"
 import { useStore } from "../../store"
-import { useEffect } from "react"
+
 
 const SignIn = () => {
   const navigate = useNavigate()
   const MOBILE_LENGTH = 10
   const updateToken = useStore(state => state.updateToken)
 
-  // Check if the token is expired or not
-  useEffect(() => {
-    verifyToken()
-  }, [])
-
-  // Verify the token
-  const verifyToken = async () => { 
-    const token = storage.get("token")
-    const res = await api.verifyToken(token)
-    console.log("verifyToken triggered", res)
-    // if (res.status === 401) {
-    //   try {
-    //     const data: Result = await api.verifyToken(token)
-    //     console.log("verifyToken triggered", data.access_token)
-    //     updateToken(data.access_token)
-    //   } catch (error) {
-    //     console.error("Unexpected error:", error)
-    //   }
-    // }
-  }
 
   // Login function
   const onLoginFinished = async (values: Login.Params) => {

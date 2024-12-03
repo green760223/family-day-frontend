@@ -1,8 +1,22 @@
 // import styles from "./Welcome.module.less"
 import { Swiper } from "antd-mobile"
 import { SwiperRef } from "antd-mobile/es/components/swiper"
+import { useEffect } from "react"
+import api from "../../api"
+import { Employee } from "../../types/api"
 
 const Home = () => {
+
+  useEffect(() => {
+    getEmployeeData()
+  }, [])
+
+  const getEmployeeData = async () => { 
+    const res: Employee.Info = await api.getEmployeeInfo("0931883551")
+    console.log("getEmployeeData triggered", res)
+  }
+
+
   return (
     <div>
       {/* <Swiper
