@@ -1,10 +1,11 @@
-// import styles from "./Welcome.module.less"
-import { Swiper, Toast } from "antd-mobile"
+import styles from "./Home.module.less"
+import { Swiper, Toast, NoticeBar } from "antd-mobile"
 import { useEffect } from "react"
 import api from "../../api"
 import { Employee } from "../../types/api"
 
 const Home = () => {
+  const noticeText = "親愛的同仁們，請記得選出您最喜歡的聖誕卡設計！投票截止時間：12月14日下午3點。"
   const imgsURL = [
     "https://picsum.photos/400/250?random=1", 
     "https://picsum.photos/400/250?random=2", 
@@ -37,7 +38,9 @@ const Home = () => {
 
 
   return (
-    <div>
+    <>
+    <div className={styles.wrapper}>
+      
       <Swiper
         loop
         autoplay
@@ -48,7 +51,10 @@ const Home = () => {
         }}>
         {items}
       </Swiper>
-      <div style={{marginTop: "20px"}}>
+      <div>
+        <NoticeBar className={styles.noticeBar} content={noticeText} wrap={true} style={{"--background-color": "white", "--border-color": "white", "--text-color": "grey", "--font-size": "16px"}} />
+      </div>
+      {/* <div style={{marginTop: "20px"}}>
       Test, Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident
       nisi, natus nam iure eos dignissimos vitae dolorum corporis atque. Natus
       pariatur quo animi, dolorem dicta quisquam in consequuntur. Inventore,
@@ -59,10 +65,12 @@ const Home = () => {
       adipisicing elit. Provident nisi, natus nam iure eos dignissimos vitae
       dolorum corporis atque. Natus pariatur quo animi, dolorem dicta quisquam
       in consequuntur.  
-      </div>
+      </div> */}
       
       
     </div>
+    </>
+    
   )
 }
 
