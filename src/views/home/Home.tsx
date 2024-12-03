@@ -1,11 +1,30 @@
 // import styles from "./Welcome.module.less"
-import { Swiper } from "antd-mobile"
-import { SwiperRef } from "antd-mobile/es/components/swiper"
+import { Swiper, Toast } from "antd-mobile"
 import { useEffect } from "react"
 import api from "../../api"
 import { Employee } from "../../types/api"
 
 const Home = () => {
+  const imgsURL = [
+    "https://picsum.photos/400/250?random=1", 
+    "https://picsum.photos/400/250?random=2", 
+    "https://picsum.photos/400/250?random=3"
+  ]
+
+  const items = imgsURL.map((img, index) => (
+    <Swiper.Item key={index}>
+      <div
+        onClick={() => {
+          Toast.show(`你點擊了卡片 ${index + 1}`)
+        }}
+      >
+        <img src={img} style={{height: "250px", verticalAlign: "top", width: "100%"}} alt="Swiper image" />
+        
+      </div>
+    </Swiper.Item>
+  ))
+
+  
 
   useEffect(() => {
     getEmployeeData()
@@ -19,14 +38,16 @@ const Home = () => {
 
   return (
     <div>
-      {/* <Swiper
+      <Swiper
         loop
         autoplay
-        onIndexChange={(i) => {
+        autoplayInterval={5000}
+        onIndexChange={(i, ) => {
           console.log(i, "onIndexChange1")
         }}>
         {items}
-      </Swiper> */}
+      </Swiper>
+      <div style={{marginTop: "20px"}}>
       Test, Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident
       nisi, natus nam iure eos dignissimos vitae dolorum corporis atque. Natus
       pariatur quo animi, dolorem dicta quisquam in consequuntur. Inventore,
@@ -49,42 +70,10 @@ const Home = () => {
       doloribus? Test, Lorem ipsum dolor, sit amet consectetur adipisicing elit.
       Provident nisi, natus nam iure eos dignissimos vitae dolorum corporis
       atque. Natus pariatur quo animi, dolorem dicta quisquam in consequuntur.
-      Inventore, doloribus? Test, Lorem ipsum dolor, sit amet consectetur
-      adipisicing elit. Provident nisi, natus nam iure eos dignissimos vitae
-      dolorum corporis atque. Natus pariatur quo animi, dolorem dicta quisquam
-      in consequuntur. Inventore, doloribus? Test, Lorem ipsum dolor, sit amet
-      consectetur adipisicing elit. Provident nisi, natus nam iure eos
-      dignissimos vitae dolorum corporis atque. Natus pariatur quo animi,
-      dolorem dicta quisquam in consequuntur. Inventore, doloribus? Test, Lorem
-      ipsum dolor, sit amet consectetur adipisicing elit. Provident nisi, natus
-      nam iure eos dignissimos vitae dolorum corporis atque. Natus pariatur quo
-      animi, dolorem dicta quisquam in consequuntur. Inventore, doloribus? Test,
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident nisi,
-      natus nam iure eos dignissimos vitae dolorum corporis atque. Natus
-      pariatur quo animi, dolorem dicta quisquam in consequuntur. Inventore,
-      doloribus? Test, Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-      Provident nisi, natus nam iure eos dignissimos vitae dolorum corporis
-      atque. Natus pariatur quo animi, dolorem dicta quisquam in consequuntur.
-      Inventore, doloribus? Test, Lorem ipsum dolor, sit amet consectetur
-      adipisicing elit. Provident nisi, natus nam iure eos dignissimos vitae
-      dolorum corporis atque. Natus pariatur quo animi, dolorem dicta quisquam
-      in consequuntur. Inventore, doloribus? Test, Lorem ipsum dolor, sit amet
-      consectetur adipisicing elit. Provident nisi, natus nam iure eos
-      dignissimos vitae dolorum corporis atque. Natus pariatur quo animi,
-      dolorem dicta quisquam in consequuntur. Inventore, doloribus? Test, Lorem
-      ipsum dolor, sit amet consectetur adipisicing elit. Provident nisi, natus
-      nam iure eos dignissimos vitae dolorum corporis atque. Natus pariatur quo
-      animi, dolorem dicta quisquam in consequuntur. Inventore, doloribus? Test,
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident nisi,
-      natus nam iure eos dignissimos vitae dolorum corporis atque. Natus
-      pariatur quo animi, dolorem dicta quisquam in consequuntur. Inventore,
-      doloribus? Test, Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-      Provident nisi, natus nam iure eos dignissimos vitae dolorum corporis
-      atque. Natus pariatur quo animi, dolorem dicta quisquam in consequuntur.
-      Inventore, doloribus? Test, Lorem ipsum dolor, sit amet consectetur
-      adipisicing elit. Provident nisi, natus nam iure eos dignissimos vitae
-      dolorum corporis atque. Natus pariatur quo animi, dolorem dicta quisquam
-      in consequuntur. Inventore, doloribus?testtesttesttesttesttest
+      Inventore, doloribus? 
+      </div>
+      
+      
     </div>
   )
 }
