@@ -38,10 +38,10 @@ const Game = () => {
 
   return (
     <div>
-      <Image src='public/map.webp' fit='contain' onClick={handleImageClick} />
+      <Image src='https://bababcb.webp.li/map.webp' fit='contain' onClick={handleImageClick} />
 
       <ImageViewer
-        image='public/map.webp'
+        image='https://bababcb.webp.li/map.webp'
         visible={mapVisible}
         onClose={() => {
           setMapVisible(false)

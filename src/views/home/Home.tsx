@@ -18,7 +18,7 @@ const Home = () => {
           Toast.show(`你點擊了卡片 ${index + 1}`)
         }}
       >
-        <img src={img} style={{height: "250px", verticalAlign: "top", width: "100%"}} alt="Swiper image" />
+        <img src={img} style={{height: "250px", width: "100%"}} alt="Swiper image" />
         
       </div>
     </Swiper.Item>
@@ -58,20 +58,7 @@ const Home = () => {
       Inventore, doloribus? Test, Lorem ipsum dolor, sit amet consectetur
       adipisicing elit. Provident nisi, natus nam iure eos dignissimos vitae
       dolorum corporis atque. Natus pariatur quo animi, dolorem dicta quisquam
-      in consequuntur. Inventore, doloribus? Test, Lorem ipsum dolor, sit amet
-      consectetur adipisicing elit. Provident nisi, natus nam iure eos
-      dignissimos vitae dolorum corporis atque. Natus pariatur quo animi,
-      dolorem dicta quisquam in consequuntur. Inventore, doloribus? Test, Lorem
-      ipsum dolor, sit amet consectetur adipisicing elit. Provident nisi, natus
-      nam iure eos dignissimos vitae dolorum corporis atque. Natus pariatur quo
-      animi, dolorem dicta quisquam in consequuntur. Inventore, doloribus? Test,
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident nisi,
-      natus nam iure eos dignissimos vitae dolorum corporis atque. Natus
-      pariatur quo animi, dolorem dicta quisquam in consequuntur. Inventore,
-      doloribus? Test, Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-      Provident nisi, natus nam iure eos dignissimos vitae dolorum corporis
-      atque. Natus pariatur quo animi, dolorem dicta quisquam in consequuntur.
-      Inventore, doloribus? 
+      in consequuntur.  
       </div>
       
       
