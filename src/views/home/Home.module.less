@@ -1,5 +1,4 @@
 .wrapper {
-  // display: flex;
   // flex-direction: column;
   // align-items: center;
   // min-height: 100vh;
@@ -8,8 +7,48 @@
   // overflow: hidden;
 }
 
+.welcome {
+  font-family: 'Microsoft YaHei', sans-serif;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.welcomeLayout {
+  display: flex;
+  justify-content: space-between;
+}
+
 .noticeBar {
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   
+}
+
+.navTitle {
+  font-family: 'Microsoft YaHei', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 15px;
+
+}
+
+.navLayout {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center; /* 垂直居中 */
+  width: 100%;
+  gap: 10%;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.navImage {
+  width: 50%;
+  height: auto;
+  max-width: 120px;
 }
