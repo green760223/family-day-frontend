@@ -3,7 +3,7 @@ import { Swiper, Toast, NoticeBar, Space, Image } from "antd-mobile"
 import { useEffect, useState } from "react"
 import api from "../../api"
 import { Employee } from "../../types/api"
-import { link } from "fs"
+
 
 const Home = () => {
   const [employeeInfo, setEmployeeInfo] = useState<Employee.Info | null>(null)
