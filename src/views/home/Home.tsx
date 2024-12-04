@@ -3,6 +3,7 @@ import { Swiper, Toast, NoticeBar, Space, Image } from "antd-mobile"
 import { useEffect, useState } from "react"
 import api from "../../api"
 import { Employee } from "../../types/api"
+import { link } from "fs"
 
 const Home = () => {
   const [employeeInfo, setEmployeeInfo] = useState<Employee.Info | null>(null)
@@ -16,19 +17,22 @@ const Home = () => {
   const navs = [
     {
       id: 1,
-      img: "public/nav/map.png",
+      img: "/nav/map.png",
       title: "會場地圖",
+      link: "http://localhost:5173/#/game"
 
     },
     {
       id: 2,
-      img: "public/nav/schedule.png",
+      img: "/nav/schedule.png",
       title: "活動流程",
+      link: "http://localhost:5173/#/activity"
     },
     {
       id: 3,
-      img: "public/nav/vote.png",
+      img: "/nav/vote.png",
       title: "卡片票選",
+      link: "https://forms.gle/2oekmcnvN5QFjgcG7"
     }
   ]
 
@@ -46,6 +50,27 @@ const Home = () => {
       </div>
     </Swiper.Item>
   ))
+
+  const handleNavClick = (id: number) => {
+    console.log(`Nav item with id ${id} clicked.`)
+    switch (id) {
+      case 1:
+        console.log("Navigating to map")
+        // Navigation logic for map
+        break
+      case 2:
+        console.log("Navigating to schedule")
+        // Navigation logic for schedule
+        break
+      case 3:
+        console.log("Navigating to voting")
+        // Navigation logic for voting
+        break
+      default:
+        console.log("Unknown navigation")
+    }
+  }
+  
 
   useEffect(() => {
     getEmployeeData()
@@ -105,20 +130,20 @@ const Home = () => {
 
         </Space> */}
 
-        <Space justify="around" direction="horizontal">
+        <Space justify="center" direction="horizontal" style={{display: "flex"}}>
           {navs.map((item, _index) => (
-            <div key={item.id} className={styles.navLayout} >
-              <Image
-                className={styles.navImage}
-                src={item.img}
-                alt="nav image"
-              />
-              <p className={styles.navTitle}>{item.title}</p>
+            <div key={item.id} className={styles.navLayout} onClick={() => handleNavClick(item.id)}>
+              <a href={item.link} className={styles.navLayout}>
+                  <Image
+                  className={styles.navImage}
+                  src={item.img}
+                  alt="nav image"
+                  />
+                  <p className={styles.navTitle}>{item.title}</p>
+              </a>
             </div>
           ))}
-
-        </Space>
-        
+        </Space>        
         
 
       </div>
