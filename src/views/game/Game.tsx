@@ -6,17 +6,17 @@ const Game = () => {
   const [mapVisible, setMapVisible] = useState(false)
   // const [popupVisible, setPopupVisible] = useState(true)
 
-  useEffect(() => {
-    Swal.fire({
-      icon: "info",
-      title: "提示",
-      text: "您可以點擊地圖後放大查看位置",
-      showConfirmButton: true,
-      confirmButtonText: "知道了",
-      timer: 3000,
-      timerProgressBar: true,
-    })
-  }, [])
+  // useEffect(() => {
+  //   Swal.fire({
+  //     icon: "info",
+  //     title: "提示",
+  //     text: "您可以點擊地圖後放大查看位置",
+  //     showConfirmButton: true,
+  //     confirmButtonText: "知道了",
+  //     timer: 3000,
+  //     timerProgressBar: true,
+  //   })
+  // }, [])
 
   const handleImageClick = () => {
     setMapVisible(true)

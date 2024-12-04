@@ -5,42 +5,47 @@
   justify-content: space-between;
   min-height: 100vh;
   min-width: 100vw;
-  background-color: #ffffff;
+  // background-color: #ffffff;
+  background-image: url("/background/login.webp");
+  background-repeat: no-repeat; /* 防止圖片重複 */
+  background-size: cover; /* 讓圖片充滿整個背景區域，並保持比例 */
+  background-position: top center; /* 讓圖片居中對齊 */
   overflow: hidden;
 }
 
-.logo {
-  margin-top: 40px;
-}
+// .logo {
+//   margin-top: 40px;
+// }
 
-.font {
-  text-align: center;
-  line-height: 1.2;
-  font-size: 24px;
-  font-weight: 600;
-  color: #000000;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 60px;
-}
+// .font {
+//   text-align: center;
+//   line-height: 1.2;
+//   font-size: 24px;
+//   font-weight: 600;
+//   color: #000000;
+//   align-items: center;
+//   justify-content: center;
+//   margin-bottom: 60px;
+// }
 
-.subFont {
-  text-align: center;
-  font-weight: bold;
-  line-height: 1.2;
-  font-size: 16px;
-  font-weight: 500;
-  color: #000000;
-  align-items: center;
-  justify-content: center;
-}
+// .subFont {
+//   text-align: center;
+//   font-weight: bold;
+//   line-height: 1.2;
+//   font-size: 16px;
+//   font-weight: 500;
+//   color: #000000;
+//   align-items: center;
+//   justify-content: center;
+// }
 
 .footer {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 40px;
+  margin-top: 95%;
+  // margin-bottom: 40px;
 }
 
 .prefixIcon {
@@ -53,11 +58,19 @@
 .footerText {
   text-align: center;
   line-height: 30px;
-  color: #b0aeae;
-  font-size: 14px;
+  letter-spacing: 1px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
   margin-bottom: 60px;
 }
 
 .fontColor {
   color: #c30a3d;
+}
+
+.input {
+  border-radius: 12px;
+  // border: 1px solid #c30a3d;
+  // padding: 8px;
 }

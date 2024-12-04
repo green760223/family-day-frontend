@@ -6,19 +6,19 @@ import Swal from "sweetalert2"
 
 const Activity = () => {
   const { Step } = Steps
-  const [isNotification, setIsNotification] = useState(true)
+  // const [isNotification, setIsNotification] = useState(true)
 
-  useEffect(() => {
-    if (isNotification) {
-      Swal.fire({
-        title: "新活動提醒",
-        text: "11:00 - 11:05 AM 抽獎活動即將開始，快來參加吧！",
-        icon: "info",
-        confirmButtonText: "我知道了",
-      })
-    }
-    setIsNotification(false)
-  }, [isNotification])
+  // useEffect(() => {
+  //   if (isNotification) {
+  //     Swal.fire({
+  //       title: "新活動提醒",
+  //       text: "11:00 - 11:05 AM 抽獎活動即將開始，快來參加吧！",
+  //       icon: "info",
+  //       confirmButtonText: "我知道了",
+  //     })
+  //   }
+  //   setIsNotification(false)
+  // }, [isNotification])
 
   return (
     <div className={styles.wrapper}>

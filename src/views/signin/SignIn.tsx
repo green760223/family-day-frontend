@@ -8,16 +8,13 @@ import { Login, Result } from "../../types/api"
 import storage from "../../utils/storage"
 import { useStore } from "../../store"
 
-
 const SignIn = () => {
   const navigate = useNavigate()
   const MOBILE_LENGTH = 10
-  const updateToken = useStore(state => state.updateToken)
-
+  const updateToken = useStore((state) => state.updateToken)
 
   // Login function
   const onLoginFinished = async (values: Login.Params) => {
-
     // Check if the mobile number is empty or not
     if (!values.mobile || values.mobile.length !== MOBILE_LENGTH) {
       return Swal.fire({
@@ -34,7 +31,7 @@ const SignIn = () => {
     try {
       const data: Result = await api.login(values)
       console.log("onLoginFinished triggered", data.access_token)
-    
+
       storage.set("token", data.access_token)
       updateToken(data.access_token)
 
@@ -48,7 +45,6 @@ const SignIn = () => {
       }).then(() => {
         navigate("/home")
       })
-    
     } catch (error) {
       console.error("Unexpected error:", error)
 
@@ -105,7 +101,7 @@ const SignIn = () => {
   return (
     <>
       <div className={styles.wrapper}>
-        <div>
+        {/* <div>
           <Image
             className={styles.logo}
             src='/logo/promate-logo.png'
@@ -116,7 +112,7 @@ const SignIn = () => {
             <span className={styles.fontColor}>藝</span>遊世界 <br />{" "}
             <span className={styles.subFont}>2024 豐藝集團家庭日</span>
           </p>
-        </div>
+        </div> */}
 
         <div className={styles.footer}>
           <Form
@@ -131,7 +127,7 @@ const SignIn = () => {
                 style={{
                   backgroundColor: "#c30a3d",
                   color: "#ffffff",
-                  marginTop: "100px",
+                  marginTop: "20px",
                   border: "none",
                 }}>
                 登入報到
