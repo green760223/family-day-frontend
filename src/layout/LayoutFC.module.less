@@ -8,21 +8,22 @@
   // height: calc(
   //   100vh - 100px
   // ); // 計算 Content 區域高度，頂部導航欄和底部導航欄各佔 50px
-  // height: calc(
-  //   100vh - 0px
-  // );
+  height: calc(100vh - 50px);
   // min-width: 100vw;
-  width: 100%;
+  // width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 100vw;
+  align-items: center;
 
-  margin-top: 50px; // 確保 Content 區域不被 Header 遮擋
-  margin-bottom: 50px;
+  // margin-top: 50px; // 確保 Content 區域不被 Header 遮擋
+  // margin-bottom: 50px;
   padding: 10px;
-  // background-image: url('/map.webp');
-  // background-color: #ffffff; // 可根據設計調整背景顏色
 
-  // background-image: url('/map.webp'); 
+  background-image: url("/background/login.webp");
   background-repeat: no-repeat; /* 防止圖片重複 */
   background-size: cover; /* 讓圖片充滿整個背景區域，並保持比例 */
-  background-position: center; /* 讓圖片居中對齊 */
-  overflow: auto; /* 防止圖片溢出 */
+  background-position: top center; /* 讓圖片居中對齊 */
+  overflow: hidden;
 }

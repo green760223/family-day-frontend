@@ -141,9 +141,9 @@ const SignIn = () => {
             </Form.Item>
           </Form>
         </div>
-        <span className={styles.footerText}>
+        {/* <span className={styles.footerText}>
           Powered by 樂心國際整合行銷有限公司
-        </span>
+        </span> */}
       </div>
     </>
   )

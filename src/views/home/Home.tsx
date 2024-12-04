@@ -4,7 +4,6 @@ import { useEffect, useState } from "react"
 import api from "../../api"
 import { Employee } from "../../types/api"
 
-
 const Home = () => {
   const [employeeInfo, setEmployeeInfo] = useState<Employee.Info | null>(null)
   const noticeText =
@@ -19,21 +18,20 @@ const Home = () => {
       id: 1,
       img: "/nav/map.png",
       title: "會場地圖",
-      link: "http://localhost:5173/#/game"
-
+      link: "http://localhost:5173/#/game",
     },
     {
       id: 2,
       img: "/nav/schedule.png",
       title: "活動流程",
-      link: "http://localhost:5173/#/activity"
+      link: "http://localhost:5173/#/activity",
     },
     {
       id: 3,
       img: "/nav/vote.png",
       title: "卡片票選",
-      link: "https://forms.gle/2oekmcnvN5QFjgcG7"
-    }
+      link: "https://forms.gle/2oekmcnvN5QFjgcG7",
+    },
   ]
 
   const items = imgsURL.map((img, index) => (
@@ -70,7 +68,6 @@ const Home = () => {
         console.log("Unknown navigation")
     }
   }
-  
 
   useEffect(() => {
     getEmployeeData()
@@ -114,7 +111,7 @@ const Home = () => {
             }}
           />
         </div>
-        
+
         {/* <div className={styles.navLayout}> */}
         {/* <Space>
           {navs.map((item, _index) => (
@@ -130,22 +127,26 @@ const Home = () => {
 
         </Space> */}
 
-        <Space justify="center" direction="horizontal" style={{display: "flex"}}>
+        <Space
+          justify='center'
+          direction='horizontal'
+          style={{ display: "flex" }}>
           {navs.map((item, _index) => (
-            <div key={item.id} className={styles.navLayout} onClick={() => handleNavClick(item.id)}>
+            <div
+              key={item.id}
+              className={styles.navLayout}
+              onClick={() => handleNavClick(item.id)}>
               <a href={item.link} className={styles.navLayout}>
-                  <Image
+                <Image
                   className={styles.navImage}
                   src={item.img}
-                  alt="nav image"
-                  />
-                  <p className={styles.navTitle}>{item.title}</p>
+                  alt='nav image'
+                />
+                <p className={styles.navTitle}>{item.title}</p>
               </a>
             </div>
           ))}
-        </Space>        
-        
-
+        </Space>
       </div>
     </>
   )
