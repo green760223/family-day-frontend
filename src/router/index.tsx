@@ -1,6 +1,7 @@
 import { Navigate, createHashRouter } from "react-router-dom"
 import SignIn from "../views/signin/SignIn"
 import NotFound from "../views/NotFound"
+import Vote from "../views/vote/Vote"
 import Home from "../views/home/Home"
 import Layout from "../layout/LayoutFC"
 import Activity from "../views/activity/Activity"
@@ -37,6 +38,10 @@ export const router = [
         path: "/ticket",
         element: <Ticket />,
       },
+      {
+        path: "/vote",
+        element: <Vote />,
+      },
     ],
   },
   {
@@ -48,9 +53,9 @@ export const router = [
     element: <NotFound />,
   },
   {
-    path: '/403',
-    element: <Error403 />
-  }
+    path: "/403",
+    element: <Error403 />,
+  },
 ]
 
 export default createHashRouter(router)

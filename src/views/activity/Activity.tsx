@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react"
+// import { useState, useEffect } from "react"
 import { Steps, Space, Button } from "antd-mobile"
 import { CheckCircleFill } from "antd-mobile-icons"
 import styles from "./Activity.module.less"
-import Swal from "sweetalert2"
+// import Swal from "sweetalert2"
 
 const Activity = () => {
   const { Step } = Steps

@@ -1,4 +1,4 @@
-import { Form, Input, Button, Image } from "antd-mobile"
+import { Form, Input, Button } from "antd-mobile"
 import { MobileOutlined } from "@ant-design/icons"
 import styles from "./SignIn.module.less"
 import { useNavigate } from "react-router-dom"

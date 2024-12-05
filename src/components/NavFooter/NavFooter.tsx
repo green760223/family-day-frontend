@@ -1,9 +1,10 @@
 import { TabBar } from "antd-mobile"
 import {
   AppOutline,
-  UnorderedListOutline,
-  SystemQRcodeOutline,
-  CompassOutline,
+  // UnorderedListOutline,
+  // SystemQRcodeOutline,
+  // CompassOutline,
+  FillinOutline,
 } from "antd-mobile-icons"
 import styles from "../NavFooter/NavFooter.module.less"
 import { useNavigate, useLocation } from "react-router-dom"
@@ -21,20 +22,25 @@ const NavFooter = () => {
       icon: <AppOutline />,
     },
     {
-      title: "遊樂園",
-      key: "/game",
-      icon: <CompassOutline />,
+      title: "活動地圖",
+      key: "/map",
+      icon: <FillinOutline />,
     },
-    {
-      title: "活動",
-      key: "/activity",
-      icon: <UnorderedListOutline />,
-    },
-    {
-      title: "票券",
-      key: "/ticket",
-      icon: <SystemQRcodeOutline />,
-    },
+    // {
+    //   title: "遊樂園",
+    //   key: "/game",
+    //   icon: <CompassOutline />,
+    // },
+    // {
+    //   title: "活動",
+    //   key: "/activity",
+    //   icon: <UnorderedListOutline />,
+    // },
+    // {
+    //   title: "票券",
+    //   key: "/ticket",
+    //   icon: <SystemQRcodeOutline />,
+    // },
   ]
 
   return (

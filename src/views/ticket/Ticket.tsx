@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { useStore } from "../../store"
 import { Card, Button, Image, Toast, WaterMark, Divider } from "antd-mobile"
 import styles from "../ticket/Ticket.module.less"
 
@@ -11,7 +12,7 @@ const Ticket = () => {
 
   useEffect(() => {
     if (isUsed) {
-      Toast.show("票券已兌換")
+      Toast.show("您的票券已兌換！")
     }
   }, [isUsed])
 
@@ -97,8 +98,8 @@ const Ticket = () => {
           <Button
             color='primary'
             onClick={() => {
-              Toast.show("點擊了兌換票券按鈕")
-              setIsUsed(true)
+              Toast.show("尚未開放兌換功能")
+              // setIsUsed(true)
             }}>
             兌換票券
           </Button>

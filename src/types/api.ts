@@ -19,9 +19,9 @@ export namespace Token {
   }
 }
 
-export namespace Employee { 
+export namespace Employee {
   export interface Info {
-    id: number
+    id: string
     name: string
     mobile: string
     family_employee: number
