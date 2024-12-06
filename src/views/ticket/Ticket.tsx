@@ -86,7 +86,7 @@ const Ticket = () => {
 
           {/* <Image src='/qr-code/qr_code_RD007.png' fit='contain' /> */}
           {/* 將 WaterMark 元素包裹在 Image 外層 */}
-          <div className={styles.imageWrapper}>
+          {/* <div className={styles.imageWrapper}>
             {isUsed && (
               <WaterMark
                 content={"票券已兌換"}
@@ -101,7 +101,7 @@ const Ticket = () => {
               />
             )}
             <Image src='/qr-code/qr_code_RD007.png' fit='contain' />
-          </div>
+          </div> */}
         </div>
         <div className={styles.footer} onClick={(e) => e.stopPropagation()}>
           <Button
