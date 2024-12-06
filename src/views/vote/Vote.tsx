@@ -1,4 +1,4 @@
-import { Card, Button, Image, Toast, Divider } from "antd-mobile"
+import { Card, Button, Toast } from "antd-mobile"
 import styles from "../vote/Vote.module.less"
 
 const Vote = () => {
