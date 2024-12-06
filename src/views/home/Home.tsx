@@ -97,7 +97,7 @@ const Home = () => {
   }, [])
 
   const getEmployeeData = async () => {
-    const res: Employee.Info = await api.getEmployeeInfo("0931883551")
+    const res: Employee.Info = await api.getEmployeeInfo(employeeInfo.mobile)
     updateEmployeeInfo(res)
     console.log("Employee Info:", employeeInfo)
   }
@@ -107,7 +107,7 @@ const Home = () => {
       <div className={styles.wrapper}>
         <div className={styles.welcome}>
           <div className={styles.welcomeLayout}>
-            <div>Hi, {employeeInfo ? employeeInfo.name : "Guest"}!</div>
+            {/* <div>Hi, {employeeInfo ? employeeInfo.name : "Guest"}!</div> */}
             {/* <div>{employeeInfo.name}</div> */}
           </div>
         </div>
