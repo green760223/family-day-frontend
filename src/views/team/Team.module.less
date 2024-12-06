@@ -3,35 +3,28 @@
   flex-direction: column;
   justify-content: center; /* 水平居中 */
   align-items: center; /* 垂直居中 */
-  margin-top: 100px;
+  margin-top: 120px;
 }
 
 .card {
-  max-width: 92vw;
+  min-width: 90vw;
   box-sizing: border-box;
-  overflow: hidden; /* 隱藏超出範圍的內容 */
+  overflow: auto; /* 隱藏超出範圍的內容 */
   flex-direction: column;
   display: flex;
   justify-content: center; /* 水平居中 */
   align-items: center; /* 垂直居中 */
   border: 3px solid #e5e5e5;
   border-radius: 16px;
-  margin-top: 10px;
   margin-bottom: 20%;
 }
 
 .content {
   border-top: 2px solid #e5e5e5;
   height: fit-content;
-  margin-bottom: 10px;
+  min-width: 100%;
   overflow: auto;
-}
-
-.footer {
-  padding-top: 10px;
-  border-top: 2px solid #e5e5e5;
-  display: flex;
-  justify-content: center;
+  margin-bottom: 20px;
 }
 
 .titleWrapper {
@@ -41,14 +34,21 @@
 }
 
 .title {
-  font-size: 18px;
+  font-size: 28px;
   font-weight: bold;
   margin-top: 10px;
 }
 
+.subTitle {
+  font-size: 22px;
+  letter-spacing: 2px;
+  // font-weight: bold;
+  margin-top: 20px;
+}
+
 .imageWrapper {
   position: relative;
-  width: fit-content; /* 根據圖片大小調整容器 */
+  width: 100vw;
   height: fit-content;
 }
 

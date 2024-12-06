@@ -43,7 +43,7 @@ const Home = () => {
       id: 3,
       img: "/nav/team.png",
       title: "競賽分組",
-      link: "https://forms.gle/2oekmcnvN5QFjgcG7",
+      link: "http://localhost:5173/#/team",
     },
     {
       id: 4,

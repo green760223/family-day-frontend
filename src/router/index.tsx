@@ -8,6 +8,7 @@ import Activity from "../views/activity/Activity"
 import Ticket from "../views/ticket/Ticket"
 import Map from "../views/map/Map"
 import Error403 from "../views/Error403"
+import Team from "../views/team/Team"
 
 export const router = [
   {
@@ -41,6 +42,10 @@ export const router = [
       {
         path: "/vote",
         element: <Vote />,
+      },
+      {
+        path: "/team",
+        element: <Team />,
       },
     ],
   },
