@@ -1,24 +1,31 @@
 import styles from "./Home.module.less"
-import { Swiper, Toast, NoticeBar, Image, Grid } from "antd-mobile"
-import { useEffect, useState } from "react"
+import {
+  // Swiper,
+  // Toast,
+  NoticeBar,
+  Image,
+  Grid,
+} from "antd-mobile"
+import {
+  useEffect,
+  // useState
+} from "react"
 import api from "../../api"
 import { Employee } from "../../types/api"
 import { useStore } from "../../store"
 
 const Home = () => {
-  const updateEmployeeInfo: Employee.Info = useStore(
-    (state) => state.employeeInfo
-  )
-  // const [employeeInfo, setEmployeeInfo] = useState<Employee.Info | null>(null)
+  const { updateEmployeeInfo } = useStore()
+  const employeeInfo = useStore((state) => state.employeeInfo)
   const noticeText =
     "親愛的同仁們，請記得選出您最喜歡的聖誕卡片設計，投票截止時間至12月14日下午3點整！"
-  const imgsURL = [
-    "https://picsum.photos/350/200?random=1",
-    "https://picsum.photos/350/200?random=2",
-    "https://picsum.photos/350/200?random=3",
-    "https://picsum.photos/350/200?random=4",
-    "https://picsum.photos/350/200?random=5",
-  ]
+  // const imgsURL = [
+  //   "https://picsum.photos/350/200?random=1",
+  //   "https://picsum.photos/350/200?random=2",
+  //   "https://picsum.photos/350/200?random=3",
+  //   "https://picsum.photos/350/200?random=4",
+  //   "https://picsum.photos/350/200?random=5",
+  // ]
   const navs = [
     {
       id: 1,
@@ -42,7 +49,7 @@ const Home = () => {
       id: 4,
       img: "/nav/christmas.png",
       title: "耶誕投票",
-      link: "https://forms.gle/2oekmcnvN5QFjgcG7",
+      link: "http://localhost:5173/#/vote",
     },
   ]
 
@@ -63,22 +70,22 @@ const Home = () => {
 
   const handleNavClick = (id: number) => {
     console.log(`Nav item with id ${id} clicked.`)
-    switch (id) {
-      case 1:
-        console.log("Navigating to map")
-        // Navigation logic for map
-        break
-      case 2:
-        console.log("Navigating to schedule")
-        // Navigation logic for schedule
-        break
-      case 3:
-        console.log("Navigating to voting")
-        // Navigation logic for voting
-        break
-      default:
-        console.log("Unknown navigation")
-    }
+    // switch (id) {
+    //   case 1:
+    //     console.log("Navigating to map")
+    //     // Navigation logic for map
+    //     break
+    //   case 2:
+    //     console.log("Navigating to schedule")
+    //     // Navigation logic for schedule
+    //     break
+    //   case 3:
+    //     console.log("Navigating to voting")
+    //     // Navigation logic for voting
+    //     break
+    //   default:
+    //     console.log("Unknown navigation")
+    // }
   }
 
   useEffect(() => {
@@ -87,9 +94,8 @@ const Home = () => {
 
   const getEmployeeData = async () => {
     const res: Employee.Info = await api.getEmployeeInfo("0931883551")
-    // setEmployeeInfo(res)
-    // updateEmployeeInfo(res)
-    console.log("Employee Info:", res.name)
+    updateEmployeeInfo(res)
+    console.log("Employee Info:", employeeInfo)
   }
 
   return (
@@ -97,8 +103,8 @@ const Home = () => {
       <div className={styles.wrapper}>
         <div className={styles.welcome}>
           <div className={styles.welcomeLayout}>
-            {/* <div>Hi, {employeeInfo ? employeeInfo.name : "Guest"}!</div> */}
-            {/* <div>Testing</div> */}
+            <div>Hi, {employeeInfo ? employeeInfo.name : "Guest"}!</div>
+            {/* <div>{employeeInfo.name}</div> */}
           </div>
         </div>
         {/* <div className={styles.welcomeSubText}>歡迎參加2024豐藝集團家庭日</div> */}
@@ -116,7 +122,7 @@ const Home = () => {
           <Image
             src='/logo/main.webp'
             fit='cover'
-            style={{ marginLeft: "20px" }}
+            style={{ marginLeft: "20px", marginTop: "30px" }}
           />
         </div>
         <div>
