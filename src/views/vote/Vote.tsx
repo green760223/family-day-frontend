@@ -4,10 +4,10 @@ import {
   // Toast
 } from "antd-mobile"
 import styles from "../vote/Vote.module.less"
-import { useNavigate } from "react-router-dom"
+// import { useNavigate } from "react-router-dom"
 
 const Vote = () => {
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   // const onClick = () => {
   //   Toast.show("點擊了卡片")
   // }
