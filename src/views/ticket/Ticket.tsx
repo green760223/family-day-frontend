@@ -1,6 +1,13 @@
 import { useState, useEffect } from "react"
 import { useStore } from "../../store"
-import { Card, Button, Image, Toast, WaterMark, Divider } from "antd-mobile"
+import {
+  Card,
+  Button,
+  // Image,
+  Toast,
+  // WaterMark,
+  Divider,
+} from "antd-mobile"
 import styles from "../ticket/Ticket.module.less"
 
 const Ticket = () => {
