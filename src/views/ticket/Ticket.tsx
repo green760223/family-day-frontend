@@ -4,11 +4,12 @@ import { Card, Button, Image, Toast, WaterMark, Divider } from "antd-mobile"
 import styles from "../ticket/Ticket.module.less"
 
 const Ticket = () => {
-  const [isUsed, setIsUsed] = useState(false)
-  const [adultCount, _setAdultCount] = useState(1)
-  const [childCount, _setChildCount] = useState(2)
-  const [seniorCount, _setSeniorCount] = useState(1)
-  const [infantCount, _setInfantCount] = useState(1)
+  const [isUsed, _setIsUsed] = useState(false)
+  // const [adultCount, _setAdultCount] = useState(1)
+  // const [childCount, _setChildCount] = useState(2)
+  // const [seniorCount, _setSeniorCount] = useState(1)
+  // const [infantCount, _setInfantCount] = useState(1)
+  const employeeInfo = useStore((state) => state.employeeInfo)
 
   useEffect(() => {
     if (isUsed) {
@@ -20,13 +21,13 @@ const Ticket = () => {
   //   Toast.show("點擊了卡片")
   // }
 
-  const onHeaderClick = () => {
-    Toast.show("點擊了卡片Header區域")
-  }
+  // const onHeaderClick = () => {
+  //   Toast.show("點擊了卡片Header區域")
+  // }
 
-  const onBodyClick = () => {
-    Toast.show("點擊了卡片Body區域")
-  }
+  // const onBodyClick = () => {
+  //   Toast.show("點擊了卡片Body區域")
+  // }
 
   return (
     <div className={styles.wrapper}>
@@ -34,11 +35,11 @@ const Ticket = () => {
         className={styles.card}
         title={
           <div className={styles.titleWrapper}>
-            <span className={styles.title}>票券資訊</span>
+            <span className={styles.title}>票券資訊 - {employeeInfo.name}</span>
           </div>
         }
-        onBodyClick={onBodyClick}
-        onHeaderClick={onHeaderClick}
+        // onBodyClick={onBodyClick}
+        // onHeaderClick={onHeaderClick}
         style={{ "--adm-card-header-border-width": "0px" } as any}>
         <div className={styles.content}>
           <div className={styles.participants}>
@@ -46,7 +47,9 @@ const Ticket = () => {
               {/* 成人 */}
               <div className={styles.categoryItem}>
                 <div className={styles.categoryItemTitle}>成人</div>
-                <div className={styles.categoryItemText}>{adultCount}</div>
+                <div className={styles.categoryItemText}>
+                  {employeeInfo.family_adult}
+                </div>
               </div>
 
               <Divider direction='vertical' />
@@ -54,7 +57,9 @@ const Ticket = () => {
               {/* 孩童 */}
               <div className={styles.categoryItem}>
                 <div className={styles.categoryItemTitle}>孩童</div>
-                <div className={styles.categoryItemText}>{childCount}</div>
+                <div className={styles.categoryItemText}>
+                  {employeeInfo.family_child}
+                </div>
               </div>
 
               <Divider direction='vertical' />
@@ -62,7 +67,9 @@ const Ticket = () => {
               {/* 博愛 */}
               <div className={styles.categoryItem}>
                 <div className={styles.categoryItemTitle}>博愛</div>
-                <div className={styles.categoryItemText}>{seniorCount}</div>
+                <div className={styles.categoryItemText}>
+                  {employeeInfo.family_elderly}
+                </div>
               </div>
 
               <Divider direction='vertical' />
@@ -70,7 +77,9 @@ const Ticket = () => {
               {/* 幼童 */}
               <div className={styles.categoryItem}>
                 <div className={styles.categoryItemTitle}>幼童</div>
-                <div className={styles.categoryItemText}>{infantCount}</div>
+                <div className={styles.categoryItemText}>
+                  {employeeInfo.family_infant}
+                </div>
               </div>
             </div>
           </div>
