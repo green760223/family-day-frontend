@@ -1,7 +1,9 @@
 import { Card, Button, Toast } from "antd-mobile"
 import styles from "../vote/Vote.module.less"
+import { useNavigate } from "react-router-dom"
 
 const Vote = () => {
+  const navigate = useNavigate()
   // const onClick = () => {
   //   Toast.show("點擊了卡片")
   // }
@@ -56,16 +58,19 @@ const Vote = () => {
           <Button
             color='primary'
             onClick={() => {
-              Toast.show("活動尚未開放")
+              // Toast.show("活動尚未開放")
               // setIsUsed(true)
+              window.location.href = "https://www.promate.com.tw/"
             }}>
             點我觀看作品
           </Button>
           <Button
             color='primary'
             onClick={() => {
-              Toast.show("活動尚未開放")
+              // Toast.show("活動尚未開放")
               // setIsUsed(true)
+              // navigate()
+              window.location.href = "https://forms.gle/7cnsPHANkugNvHZZ8"
             }}>
             點我進行投票
           </Button>

@@ -31,25 +31,29 @@ const Home = () => {
       id: 1,
       img: "/nav/pass.png",
       title: "我的票券",
-      link: "http://localhost:5173/#/ticket",
+      // link: "http://localhost:5173/#/ticket",
+      link: "https://promate.legacy-taiwan.com/#/ticket",
     },
     {
       id: 2,
       img: "/nav/timeline.png",
       title: "活動流程",
-      link: "http://localhost:5173/#/activity",
+      // link: "http://localhost:5173/#/activity",
+      link: "https://promate.legacy-taiwan.com/#/activity",
     },
     {
       id: 3,
       img: "/nav/team.png",
       title: "競賽分組",
-      link: "http://localhost:5173/#/team",
+      // link: "http://localhost:5173/#/team",
+      link: "https://promate.legacy-taiwan.com/#/team",
     },
     {
       id: 4,
       img: "/nav/christmas.png",
       title: "耶誕投票",
-      link: "http://localhost:5173/#/vote",
+      // link: "http://localhost:5173/#/vote",
+      link: "https://promate.legacy-taiwan.com/#/vote",
     },
   ]
 
