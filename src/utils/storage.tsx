@@ -37,4 +37,27 @@ export default {
   clear() {
     localStorage.clear()
   },
+
+  /**
+   * Set mobile to local storage
+   *
+   * @param {string} mobile
+   */
+  setMobile(mobile: string) {
+    this.set("mobile", mobile)
+  },
+  /**
+   * Get mobile from local storage
+   *
+   * @returns {string | null}
+   */
+  getMobile() {
+    return this.get("mobile")
+  },
+  /**
+   * Remove mobile from local storage
+   */
+  removeMobile() {
+    this.remove("mobile")
+  },
 }

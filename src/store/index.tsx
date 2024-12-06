@@ -1,14 +1,16 @@
 import { create } from "zustand"
 import { Employee } from "../types/api"
-// import storage from '../utils/storage'
 
 export const useStore = create<{
   token: string
+  cell: string
   employeeInfo: Employee.Info
   updateEmployeeInfo: (employeeInfo: Employee.Info) => void
   updateToken: (token: string) => void
+  updateCell: (cell: string) => void
 }>((set) => ({
   token: "",
+  cell: "",
   employeeInfo: {
     id: "",
     name: "",
@@ -24,5 +26,6 @@ export const useStore = create<{
     checkedInTime: "",
   },
   updateToken: (token) => set({ token }),
+  updateCell: (cell) => set({ cell }),
   updateEmployeeInfo: (employeeInfo: Employee.Info) => set({ employeeInfo }),
 }))

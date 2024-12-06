@@ -12,6 +12,7 @@ const SignIn = () => {
   const navigate = useNavigate()
   const MOBILE_LENGTH = 10
   const updateToken = useStore((state) => state.updateToken)
+  const updateCell = useStore((state) => state.updateCell)
 
   // Login function
   const onLoginFinished = async (values: Login.Params) => {
@@ -31,9 +32,11 @@ const SignIn = () => {
     try {
       const data: Result = await api.login(values)
       console.log("onLoginFinished triggered", data.access_token)
-
       storage.set("token", data.access_token)
       updateToken(data.access_token)
+      updateCell(values.mobile)
+      storage.setMobile(values.mobile)
+      // console.log("mobile", values.mobile)
 
       await Swal.fire({
         icon: "success",

@@ -1,7 +1,6 @@
 import request from "../utils/request"
 import { Login, Result, Token, Employee } from "../types/api"
 
-
 export default {
   login(params: Login.Params) {
     return request.post<Result>("/employee/token", params)
@@ -13,7 +12,7 @@ export default {
 
   getEmployeeInfo(params: string) {
     return request.get<Employee.Info>(`/employee/${params}`)
-  }
+  },
 
   // getUserInfo() {
   //   return request.get<User.UserInfo[]>("/users")

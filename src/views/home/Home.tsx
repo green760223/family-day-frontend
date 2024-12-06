@@ -1,18 +1,10 @@
 import styles from "./Home.module.less"
-import {
-  // Swiper,
-  // Toast,
-  NoticeBar,
-  Image,
-  Grid,
-} from "antd-mobile"
-import {
-  useEffect,
-  // useState
-} from "react"
+import { NoticeBar, Image, Grid } from "antd-mobile"
+import { useEffect } from "react"
 import api from "../../api"
 import { Employee } from "../../types/api"
 import { useStore } from "../../store"
+import storage from "../../utils/storage"
 
 const Home = () => {
   const { updateEmployeeInfo } = useStore()
@@ -31,8 +23,8 @@ const Home = () => {
       id: 1,
       img: "/nav/pass.png",
       title: "我的票券",
-      // link: "http://localhost:5173/#/ticket",
-      link: "https://promate.legacy-taiwan.com/#/ticket",
+      link: "http://localhost:5173/#/ticket",
+      // link: "https://promate.legacy-taiwan.com/#/ticket",
     },
     {
       id: 2,
@@ -93,11 +85,18 @@ const Home = () => {
   }
 
   useEffect(() => {
+    // verifyToken()
     getEmployeeData()
   }, [])
 
+  // const verifyToken = async () => {
+  //   const res = await api.verifyToken(storage.get("token"))
+  //   setMobile(res["sub"])
+  //   console.log("Mobile:", mobile)
+  // }
+
   const getEmployeeData = async () => {
-    const res: Employee.Info = await api.getEmployeeInfo(employeeInfo.mobile)
+    const res: Employee.Info = await api.getEmployeeInfo(storage.getMobile())
     updateEmployeeInfo(res)
     console.log("Employee Info:", employeeInfo)
   }
