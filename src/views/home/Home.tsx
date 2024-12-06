@@ -23,8 +23,8 @@ const Home = () => {
       id: 1,
       img: "/nav/pass.png",
       title: "我的票券",
-      link: "http://localhost:5173/#/ticket",
-      // link: "https://promate.legacy-taiwan.com/#/ticket",
+      // link: "http://localhost:5173/#/ticket",
+      link: "https://promate.legacy-taiwan.com/#/ticket",
     },
     {
       id: 2,
