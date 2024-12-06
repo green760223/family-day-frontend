@@ -2,21 +2,21 @@ import { useState, useEffect } from "react"
 import { Image, ImageViewer } from "antd-mobile"
 import Swal from "sweetalert2"
 
-const Game = () => {
+const Map = () => {
   const [mapVisible, setMapVisible] = useState(false)
   // const [popupVisible, setPopupVisible] = useState(true)
 
-  // useEffect(() => {
-  //   Swal.fire({
-  //     icon: "info",
-  //     title: "提示",
-  //     text: "您可以點擊地圖後放大查看位置",
-  //     showConfirmButton: true,
-  //     confirmButtonText: "知道了",
-  //     timer: 3000,
-  //     timerProgressBar: true,
-  //   })
-  // }, [])
+  useEffect(() => {
+    Swal.fire({
+      icon: "info",
+      title: "提示",
+      text: "您可以點擊地圖後放大查看位置",
+      showConfirmButton: true,
+      confirmButtonText: "知道了",
+      timer: 3000,
+      timerProgressBar: true,
+    })
+  }, [])
 
   const handleImageClick = () => {
     setMapVisible(true)
@@ -38,10 +38,16 @@ const Game = () => {
 
   return (
     <div>
-      <Image src='https://bababcb.webp.li/map.webp' fit='contain' onClick={handleImageClick} />
+      <Image
+        // src='https://bababcb.webp.li/map.webp'
+        src='/map.webp'
+        fit='contain'
+        onClick={handleImageClick}
+      />
 
       <ImageViewer
-        image='https://bababcb.webp.li/map.webp'
+        // image='https://bababcb.webp.li/map.webp'
+        image='/map.webp'
         visible={mapVisible}
         onClose={() => {
           setMapVisible(false)
@@ -60,4 +66,4 @@ const Game = () => {
   )
 }
 
-export default Game
+export default Map

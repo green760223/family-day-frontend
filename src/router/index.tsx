@@ -6,7 +6,7 @@ import Home from "../views/home/Home"
 import Layout from "../layout/LayoutFC"
 import Activity from "../views/activity/Activity"
 import Ticket from "../views/ticket/Ticket"
-import Game from "../views/game/Game"
+import Map from "../views/map/Map"
 import Error403 from "../views/Error403"
 
 export const router = [
@@ -27,8 +27,8 @@ export const router = [
         element: <Home />,
       },
       {
-        path: "/game",
-        element: <Game />,
+        path: "/map",
+        element: <Map />,
       },
       {
         path: "/activity",
