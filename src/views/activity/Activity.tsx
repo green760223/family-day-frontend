@@ -26,44 +26,36 @@ const Activity = () => {
       </div>
       <Steps
         direction='vertical'
-        current={1}
         style={{
           "--title-font-size": "18px",
           "--description-font-size": "16px",
-          "--indicator-margin-right": "12px",
+          "--indicator-margin-right": "20px",
           "--icon-size": "30px",
         }}>
         <Step
+          status='finish'
           title={
             <div className={styles.stepContent}>
               <div className={styles.customTitleLeft}>10:00 - 10:30 AM</div>
               <div className={styles.customTitleRight}>開幕活動</div>
             </div>
           }
-          // description={
-          //   <div style={{ lineHeight: "1.5", color: "black" }}>
-          //     主持人開場、活力熱身操、長官致詞、家庭日啟動儀式、大合照
-          //   </div>
-          // }
           icon={<CheckCircleFill />}
         />
 
         <Step
+          status='finish'
           title={
             <div className={styles.stepContent}>
               <div className={styles.customTitleLeft}>10:30 - 11:00 AM</div>
               <div className={styles.customTitleRight}>團體競賽分組</div>
             </div>
           }
-          // description={
-          //   <div style={{ lineHeight: "1.5", color: "black" }}>
-          //     團體競賽分組與遊戲規則說明
-          //   </div>
-          // }
           icon={<CheckCircleFill />}
         />
 
         <Step
+          status='finish'
           title={
             <div className={styles.stepContent}>
               <div className={styles.customTitleLeft}>11:00 - 12:00 PM</div>
@@ -72,27 +64,26 @@ const Activity = () => {
           }
           description={
             <div style={{ lineHeight: "2", color: "black" }}>
-              <li style={{ marginLeft: "10px" }}>
-                競賽一 - 環遊世界（美國大西部）
+              <li style={{ marginLeft: "10px", marginTop: "10px" }}>
+                競賽一 環遊世界（美國大西部）
               </li>
               <li style={{ marginLeft: "10px" }}>
-                競賽二 - 疊杯接力（阿拉伯皇宮）
+                競賽二 疊杯接力（阿拉伯皇宮）
               </li>
               <li style={{ marginLeft: "10px" }}>
-                競賽三 - 一氣呵成（南太平洋）
+                競賽三 一氣呵成（南太平洋）
               </li>
               <li style={{ marginLeft: "10px" }}>
-                競賽四 - 西部牛仔（非洲部落）
+                競賽四 西部牛仔（非洲部落）
               </li>
-              <li style={{ marginLeft: "10px" }}>
-                競賽五 - 同心傳奇（主舞台）
-              </li>
+              <li style={{ marginLeft: "10px" }}>競賽五 同心傳奇（主舞台）</li>
             </div>
           }
           icon={<CheckCircleFill />}
         />
 
         <Step
+          status='finish'
           title={
             <div className={styles.stepContent}>
               <div className={styles.customTitleLeft}>12:00 - 15:00 PM</div>
@@ -101,20 +92,20 @@ const Activity = () => {
           }
           description={
             <div style={{ lineHeight: "2", color: "black" }}>
-              <li style={{ marginLeft: "10px" }}>
-                關卡一 - Merry Christmas（美國大西部）
+              <li style={{ marginLeft: "10px", marginTop: "10px" }}>
+                關卡一 Merry Christmas（美國大西部）
               </li>
               <li style={{ marginLeft: "10px" }}>
-                關卡二 - Snowman 堆雪人（阿拉伯皇宮）
+                關卡二 Snowman 堆雪人（阿拉伯皇宮）
               </li>
               <li style={{ marginLeft: "10px" }}>
-                關卡三 - 藝起旅行趣（南太平洋）
+                關卡三 藝起旅行趣（南太平洋）
               </li>
               <li style={{ marginLeft: "10px" }}>
-                關卡四 - 我是神射手（非洲部落）
+                關卡四 我是神射手（非洲部落）
               </li>
               <li style={{ marginLeft: "10px" }}>
-                關卡五 - 疊疊樂大作戰（主舞台）
+                關卡五 疊疊樂大作戰（主舞台）
               </li>
             </div>
           }
@@ -122,18 +113,13 @@ const Activity = () => {
         />
 
         <Step
+          status='finish'
           title={
             <div className={styles.stepContent}>
               <div className={styles.customTitleLeft}>15:30 - 16:00 PM</div>
               <div className={styles.customTitleRight}>家庭日閉幕</div>
             </div>
           }
-          // description={
-          //   <Space block direction='vertical'>
-          //     <div style={{ lineHeight: "1.5" }}>非洲部落 - 草原聚場</div>
-          //     <Button color='primary'>查看地圖</Button>
-          //   </Space>
-          // }
           icon={<CheckCircleFill />}
         />
       </Steps>

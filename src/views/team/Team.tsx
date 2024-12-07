@@ -30,7 +30,7 @@ const Team = () => {
         title={
           <div className={styles.titleWrapper}>
             <span className={styles.title}>
-              所屬組別 - 第 {employeeInfo.group} 組
+              您的組別 - 第 {employeeInfo.group} 組
             </span>
           </div>
         }
