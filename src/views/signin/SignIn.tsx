@@ -7,7 +7,6 @@ import api from "../../api"
 import { Login, Result } from "../../types/api"
 import storage from "../../utils/storage"
 import { useStore } from "../../store"
-import config from "../../config"
 
 const SignIn = () => {
   const navigate = useNavigate()
