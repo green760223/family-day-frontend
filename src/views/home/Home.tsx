@@ -5,6 +5,7 @@ import api from "../../api"
 import { Employee } from "../../types/api"
 import { useStore } from "../../store"
 import storage from "../../utils/storage"
+import config from "../../config"
 
 const Home = () => {
   const { updateEmployeeInfo } = useStore()
@@ -24,28 +25,28 @@ const Home = () => {
       img: "/nav/pass.png",
       title: "我的票券",
       // link: "http://localhost:5173/#/ticket",
-      link: "https://promate.legacy-taiwan.com/#/ticket",
+      link: `${config.routeBaseName}/ticket`,
     },
     {
       id: 2,
       img: "/nav/timeline.png",
       title: "活動流程",
       // link: "http://localhost:5173/#/activity",
-      link: "https://promate.legacy-taiwan.com/#/activity",
+      link: `${config.routeBaseName}/activity`,
     },
     {
       id: 3,
       img: "/nav/team.png",
       title: "競賽分組",
       // link: "http://localhost:5173/#/team",
-      link: "https://promate.legacy-taiwan.com/#/team",
+      link: `${config.routeBaseName}/team`,
     },
     {
       id: 4,
       img: "/nav/christmas.png",
       title: "耶誕投票",
       // link: "http://localhost:5173/#/vote",
-      link: "https://promate.legacy-taiwan.com/#/vote",
+      link: `${config.routeBaseName}/vote`,
     },
   ]
 
@@ -99,6 +100,7 @@ const Home = () => {
     const res: Employee.Info = await api.getEmployeeInfo(storage.getMobile())
     updateEmployeeInfo(res)
     console.log("Employee Info:", employeeInfo)
+    console.log("Home component rendered", config.routeBaseName)
   }
 
   return (

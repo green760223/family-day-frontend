@@ -42,44 +42,45 @@ const Ticket = () => {
         className={styles.card}
         title={
           <div className={styles.titleWrapper}>
-            <span className={styles.title}>票券資訊 - {employeeInfo.name}</span>
+            <span className={styles.title}>員工姓名 - {employeeInfo.name}</span>
           </div>
         }
         // onBodyClick={onBodyClick}
         // onHeaderClick={onHeaderClick}
         style={{ "--adm-card-header-border-width": "0px" } as any}>
         <div className={styles.content}>
+          <div className={styles.subContent}>員工及眷屬人數</div>
           <div className={styles.participants}>
             <div className={styles.category}>
               {/* 成人 */}
               <div className={styles.categoryItem}>
                 <div className={styles.categoryItemTitle}>成人</div>
                 <div className={styles.categoryItemText}>
-                  {employeeInfo.family_adult}
+                  {employeeInfo.family_adult + employeeInfo.family_employee}
                 </div>
               </div>
 
               <Divider direction='vertical' />
 
-              {/* 孩童 */}
+              {/* 孩童、博愛 */}
               <div className={styles.categoryItem}>
-                <div className={styles.categoryItemTitle}>孩童</div>
+                <div className={styles.categoryItemTitle}>孩童、博愛</div>
                 <div className={styles.categoryItemText}>
-                  {employeeInfo.family_child}
+                  {employeeInfo.family_child + employeeInfo.family_elderly}
                 </div>
               </div>
 
               <Divider direction='vertical' />
 
               {/* 博愛 */}
-              <div className={styles.categoryItem}>
+              {/* <div className={styles.categoryItem}>
                 <div className={styles.categoryItemTitle}>博愛</div>
                 <div className={styles.categoryItemText}>
                   {employeeInfo.family_elderly}
                 </div>
               </div>
 
-              <Divider direction='vertical' />
+              <Divider direction='vertical' /> */}
 
               {/* 幼童 */}
               <div className={styles.categoryItem}>
