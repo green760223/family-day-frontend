@@ -1,19 +1,18 @@
-import {
-  // useState,
-  useEffect,
-} from "react"
+import { useState, useEffect } from "react"
 import { useStore } from "../../store"
 import { Card, Button, Divider } from "antd-mobile"
-import storage from "../../utils/storage"
+// import storage from "../../utils/storage"
 import Swal from "sweetalert2"
 import styles from "../ticket/Ticket.module.less"
 
 const Ticket = () => {
-  // const [isUsed, setIsUsed] = useState(false)
+  const [isChecked, setIsCheckd] = useState(false)
   const employeeInfo = useStore((state) => state.employeeInfo)
-  const tiecketStatus = storage.getTicket()
+  // let ticketStatus = true
 
-  useEffect(() => {}, [tiecketStatus])
+  useEffect(() => {
+    console.log("ticketStatus", isChecked)
+  }, [isChecked])
 
   // const onClick = () => {
   //   Toast.show("點擊了卡片")
@@ -102,7 +101,7 @@ const Ticket = () => {
         </div>
         <div className={styles.footer} onClick={(e) => e.stopPropagation()}>
           <Button
-            disabled={tiecketStatus}
+            disabled={isChecked}
             color='primary'
             onClick={() => {
               Swal.fire({
@@ -125,13 +124,17 @@ const Ticket = () => {
                     text: "票券兌換成功！",
                     confirmButtonText: "知道了",
                   })
-                  storage.setTicket(true)
+                  setIsCheckd(true)
+                } else if (result.isConfirmed && result.value !== "1214") {
+                  Swal.fire({
+                    icon: "error",
+                    text: "活動驗證碼錯誤！",
+                    confirmButtonText: "知道了",
+                  })
                 }
-
-                // setIsUsed(true)
               })
             }}>
-            {tiecketStatus ? "已兌換票券" : "兌換票券"}
+            {isChecked ? "已兌換票券" : "兌換票券"}
           </Button>
         </div>
       </Card>

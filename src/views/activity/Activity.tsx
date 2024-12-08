@@ -116,6 +116,30 @@ const Activity = () => {
           status='finish'
           title={
             <div className={styles.stepContent}>
+              <div className={styles.customTitleLeft}>15:00 PM</div>
+              <div className={styles.customTitleRight}>
+                AI聖誕卡創作投票截止
+              </div>
+            </div>
+          }
+          icon={<CheckCircleFill />}
+        />
+
+        <Step
+          status='finish'
+          title={
+            <div className={styles.stepContent}>
+              <div className={styles.customTitleLeft}>15:30 PM</div>
+              <div className={styles.customTitleRight}>闖關禮兌換截止</div>
+            </div>
+          }
+          icon={<CheckCircleFill />}
+        />
+
+        <Step
+          status='finish'
+          title={
+            <div className={styles.stepContent}>
               <div className={styles.customTitleLeft}>15:30 - 16:00 PM</div>
               <div className={styles.customTitleRight}>家庭日閉幕</div>
             </div>

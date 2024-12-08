@@ -30,9 +30,9 @@ export namespace Employee {
     family_adult: number
     family_elderly: number
     group: number
-    isChecked: boolean
-    qrCode: string
-    checkedInTime: string
+    is_checked: boolean
+    qr_code: string
+    checked_in_time: string
   }
 }
 

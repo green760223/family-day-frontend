@@ -36,10 +36,10 @@ instance.interceptors.request.use(
 // Response interceptors
 instance.interceptors.response.use(
   (response) => {
-    const status = response.status
-    const data = response.data
-    console.log("===response===", status, data)
-    
+    // const status = response.status
+    // const data = response.data
+    // console.log("===response===", status, data)
+
     return response.data
   },
   (error) => {

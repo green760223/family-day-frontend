@@ -31,12 +31,10 @@ const SignIn = () => {
     // Call the login API
     try {
       const data: Result = await api.login(values)
-      console.log("onLoginFinished triggered", data.access_token)
       storage.set("token", data.access_token)
       updateToken(data.access_token)
       updateCell(values.mobile)
       storage.setMobile(values.mobile)
-      // console.log("mobile", values.mobile)
 
       await Swal.fire({
         icon: "success",
