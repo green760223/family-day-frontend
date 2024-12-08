@@ -26,7 +26,7 @@ const Vote = () => {
         className={styles.card}
         title={
           <div className={styles.titleWrapper}>
-            <span className={styles.title}>投票規則</span>
+            <span className={styles.title}>AI聖誕卡創作投票規則</span>
           </div>
         }
         // onBodyClick={onBodyClick}

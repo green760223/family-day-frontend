@@ -117,9 +117,7 @@ const Activity = () => {
           title={
             <div className={styles.stepContent}>
               <div className={styles.customTitleLeft}>15:00 PM</div>
-              <div className={styles.customTitleRight}>
-                AI聖誕卡創作投票截止
-              </div>
+              <div className={styles.customTitleRight}>AI聖誕卡投票截止</div>
             </div>
           }
           icon={<CheckCircleFill />}

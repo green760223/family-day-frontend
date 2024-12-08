@@ -44,7 +44,7 @@ const Home = () => {
     {
       id: 4,
       img: "/nav/christmas.png",
-      title: "耶誕投票",
+      title: "聖誕投票",
       // link: "http://localhost:5173/#/vote",
       link: `${config.routeBaseName}/vote`,
     },
