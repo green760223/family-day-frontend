@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react"
 import { useStore } from "../../store"
 import { Card, Button, Toast, Divider } from "antd-mobile"
+import Swal from "sweetalert2"
 import styles from "../ticket/Ticket.module.less"
 
 const Ticket = () => {
-  const [isUsed, _setIsUsed] = useState(false)
+  const [isUsed, setIsUsed] = useState(false)
   // const [adultCount, _setAdultCount] = useState(1)
   // const [childCount, _setChildCount] = useState(2)
   // const [seniorCount, _setSeniorCount] = useState(1)
@@ -13,7 +14,7 @@ const Ticket = () => {
 
   useEffect(() => {
     if (isUsed) {
-      Toast.show("您的票券已兌換！")
+      Toast.show("")
     }
   }, [isUsed])
 
@@ -38,8 +39,6 @@ const Ticket = () => {
             <span className={styles.title}>員工姓名 - {employeeInfo.name}</span>
           </div>
         }
-        // onBodyClick={onBodyClick}
-        // onHeaderClick={onHeaderClick}
         style={{ "--adm-card-header-border-width": "0px" } as any}>
         <div className={styles.content}>
           <div className={styles.subContent}>員工及眷屬人數</div>
@@ -106,12 +105,35 @@ const Ticket = () => {
         </div>
         <div className={styles.footer} onClick={(e) => e.stopPropagation()}>
           <Button
+            disabled={isUsed}
             color='primary'
             onClick={() => {
-              Toast.show("尚未開放兌換功能")
-              // setIsUsed(true)
+              Swal.fire({
+                title: "兌換票券",
+                input: "password",
+                inputLabel: "請輸入活動驗證碼",
+                inputAttributes: {
+                  autocapitalize: "off",
+                },
+                icon: "question",
+                showCancelButton: true,
+                confirmButtonText: "確認",
+                cancelButtonText: "取消",
+              }).then((result) => {
+                console.log("result", result)
+
+                if (result.isConfirmed && result.value === "1214") {
+                  Swal.fire({
+                    icon: "success",
+                    text: "票券兌換成功！",
+                    confirmButtonText: "知道了",
+                  })
+                }
+
+                setIsUsed(true)
+              })
             }}>
-            兌換票券
+            {isUsed ? "已兌換票券" : "兌換票券"}
           </Button>
         </div>
       </Card>
