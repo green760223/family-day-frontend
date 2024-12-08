@@ -60,4 +60,27 @@ export default {
   removeMobile() {
     this.remove("mobile")
   },
+
+  /**
+   * Set ticket to local storage
+   *
+   * @param {boolean} ticket
+   */
+  setTicket(ticket: boolean) {
+    this.set("ticket", ticket)
+  },
+  /**
+   * Get ticket from local storage
+   *
+   * @returns {boolean | null}
+   */
+  getTicket() {
+    return this.get("ticket")
+  },
+  /**
+   * Remove ticket from local storage
+   */
+  removeTicket() {
+    this.remove("ticket")
+  },
 }
