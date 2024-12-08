@@ -1,6 +1,6 @@
 // import { useState } from "react"
 import { useStore } from "../../store"
-import { Card, Grid, Space } from "antd-mobile"
+import { Card, Space } from "antd-mobile"
 import styles from "../team/Team.module.less"
 
 const Team = () => {
