@@ -115,7 +115,7 @@ const Team = () => {
         <div className={styles.content}>
           <div className={styles.particiapantsMember}>
             <span style={{ marginBottom: "20px" }}>組別成員</span>
-            <Space direction='vertical'>
+            <Space direction='vertical' style={{ width: "100%" }}>
               {teamMembers.map((item, _index) => (
                 <div
                   key={item.id}

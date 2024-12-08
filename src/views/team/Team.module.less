@@ -33,12 +33,22 @@
   margin-top: 10px;
 }
 
+// .particiapants {
+//   margin-top: 10px;
+//   width: 100%;
+//   justify-content: space-between;
+//   display: flex;
+//   align-items: center;
+// }
+
 .particiapants {
   margin-top: 10px;
   width: 100%;
-  justify-content: space-between;
+  justify-content: space-between; /* 左對齊 */
   display: flex;
+  flex-wrap: nowrap; /* 超出範圍自動換行 */
   align-items: center;
+  overflow-x: auto;
 }
 
 .particiapantsMember {
@@ -52,14 +62,24 @@
   font-weight: bold;
 }
 
+// .categoryItem {
+//   width: 15%;
+//   white-space: nowrap;
+//   // margin-top: 5px;
+//   // margin-bottom: 5px;
+//   margin-left: 10px;
+//   margin-right: 25px;
+//   // display: flex;
+//   font-size: 18px;
+//   text-align: left;
+// }
+
 .categoryItem {
-  width: 15%;
+  flex: 1; /* 讓每個項目平分空間 */
+  min-width: 100px; /* 設置最小寬度，避免內容擠壓 */
+  overflow: hidden; /* 隱藏超出範圍的內容 */
+  text-overflow: ellipsis; /* 超出範圍顯示省略號 */
   white-space: nowrap;
-  // margin-top: 5px;
-  // margin-bottom: 5px;
-  margin-left: 10px;
-  margin-right: 25px;
-  // display: flex;
-  font-size: 18px;
-  text-align: left;
+  font-size: 16px;
+  text-align: center;
 }
