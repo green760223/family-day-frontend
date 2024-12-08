@@ -1,6 +1,9 @@
-import { useState, useEffect } from "react"
+import {
+  // useState,
+  useEffect,
+} from "react"
 import { useStore } from "../../store"
-import { Card, Button, Toast, Divider } from "antd-mobile"
+import { Card, Button, Divider } from "antd-mobile"
 import storage from "../../utils/storage"
 import Swal from "sweetalert2"
 import styles from "../ticket/Ticket.module.less"
