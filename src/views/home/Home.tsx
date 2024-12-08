@@ -8,8 +8,8 @@ import storage from "../../utils/storage"
 import config from "../../config"
 
 const Home = () => {
-  const { updateEmployeeInfo } = useStore()
-  const employeeInfo = useStore((state) => state.employeeInfo)
+  const { updateEmployeeInfo, employeeInfo } = useStore()
+  // const employeeInfo = useStore((state) => state.employeeInfo)
   const noticeText =
     "親愛的同仁們，請記得選出您最喜歡的聖誕卡片設計，投票截止時間至12月14日下午3點整！"
   // const imgsURL = [
@@ -100,7 +100,6 @@ const Home = () => {
     const res: Employee.Info = await api.getEmployeeInfo(storage.getMobile())
     updateEmployeeInfo(res)
     console.log("Employee Info:", employeeInfo)
-    console.log("Home component rendered", config.routeBaseName)
   }
 
   return (
