@@ -14,6 +14,10 @@ export default {
     return request.get<Employee.Info>(`/employee/${params}`)
   },
 
+  getGroupList(params: string) {
+    return request.get<Employee.Info[]>(`/employee/group/members/${params}`)
+  },
+
   // getUserInfo() {
   //   return request.get<User.UserInfo[]>("/users")
   // },

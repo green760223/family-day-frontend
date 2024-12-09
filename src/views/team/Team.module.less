@@ -7,7 +7,7 @@
 }
 
 .card {
-  min-width: 90vw;
+  max-width: 95vw;
   box-sizing: border-box;
   overflow: auto; /* 隱藏超出範圍的內容 */
   flex-direction: column;
@@ -23,7 +23,7 @@
   border-top: 2px solid #e5e5e5;
   height: fit-content;
   min-width: 100%;
-  overflow: auto;
+  overflow: auto; /* 隱藏超出範圍的內容 */
   margin-bottom: 40px;
 }
 
@@ -75,10 +75,9 @@
 // }
 
 .categoryItem {
-  flex: 1; /* 讓每個項目平分空間 */
+  // flex: 1; /* 讓每個項目平分空間 */
   min-width: 100px; /* 設置最小寬度，避免內容擠壓 */
   overflow: hidden; /* 隱藏超出範圍的內容 */
-  text-overflow: ellipsis; /* 超出範圍顯示省略號 */
   white-space: nowrap;
   font-size: 16px;
   text-align: center;

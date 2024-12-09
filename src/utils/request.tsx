@@ -39,6 +39,7 @@ instance.interceptors.response.use(
     // const status = response.status
     // const data = response.data
     // console.log("===response===", status, data)
+    console.log("===response data===", response)
 
     return response.data
   },

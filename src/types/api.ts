@@ -29,9 +29,10 @@ export namespace Employee {
     family_child: number
     family_adult: number
     family_elderly: number
-    group: number
+    group: string
+    company: string
+    department: string
     is_checked: boolean
-    qr_code: string
     checked_in_time: string
   }
 }

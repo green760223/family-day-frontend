@@ -31,6 +31,7 @@ const SignIn = () => {
     // Call the login API
     try {
       const data: Result = await api.login(values)
+      console.log("data", data.access_token)
       storage.set("token", data.access_token)
       updateToken(data.access_token)
       updateCell(values.mobile)

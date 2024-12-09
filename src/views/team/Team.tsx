@@ -1,103 +1,120 @@
-// import { useState } from "react"
+import { useEffect, useState } from "react"
+import { Employee } from "../../types/api"
+import api from "../../api"
 import { useStore } from "../../store"
 import { Card, Space } from "antd-mobile"
 import styles from "../team/Team.module.less"
 
 const Team = () => {
-  const teamMembers = [
-    {
-      id: 1,
-      name: "黃子軒",
-      company: "勁豐",
-      department: "董事長室",
-    },
-    {
-      id: 2,
-      name: "何嘉欣",
-      company: "勁豐",
-      department: "行政部",
-    },
-    {
-      id: 3,
-      name: "林佳慧",
-      company: "勁豐",
-      department: "董事長室",
-    },
-    {
-      id: 4,
-      name: "吳思涵",
-      company: "豐藝",
-      department: "行政部",
-    },
-    {
-      id: 5,
-      name: "鄭曉華",
-      company: "豐藝",
-      department: "財務部",
-    },
-    {
-      id: 6,
-      name: "徐安安",
-      company: "勁豐",
-      department: "董事長室",
-    },
-    {
-      id: 7,
-      name: "趙雅芝",
-      company: "勁豐",
-      department: "研發部",
-    },
-    {
-      id: 8,
-      name: "張偉",
-      company: "豐藝",
-      department: "研發部",
-    },
-    {
-      id: 9,
-      name: "朱美玲",
-      company: "勁豐",
-      department: "業務部",
-    },
-    {
-      id: 10,
-      name: "周明哲",
-      company: "勁豐",
-      department: "研發部",
-    },
-    {
-      id: 11,
-      name: "吳思涵",
-      company: "勁豐",
-      department: "研發部",
-    },
-    {
-      id: 12,
-      name: "李大華",
-      company: "豐藝",
-      department: "研發部",
-    },
-    {
-      id: 13,
-      name: "朱美玲",
-      company: "豐藝",
-      department: "研發部",
-    },
-    {
-      id: 14,
-      name: "徐安安",
-      company: "豐藝",
-      department: "研發部",
-    },
-    {
-      id: 15,
-      name: "王小明",
-      company: "勁豐",
-      department: "財務部",
-    },
-  ]
-
+  const [teamMembers, setTeamMembers] = useState<Employee.Info[]>([])
   const employeeInfo = useStore((state) => state.employeeInfo)
+
+  useEffect(() => {
+    getGroupList()
+  }, [])
+
+  // const teamMembers = [
+  //   {
+  //     id: 1,
+  //     name: "黃子軒",
+  //     company: "勁豐",
+  //     department: "董事長室",
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "何嘉欣",
+  //     company: "勁豐",
+  //     department: "行政部",
+  //   },
+  //   {
+  //     id: 3,
+  //     name: "林佳慧",
+  //     company: "勁豐",
+  //     department: "董事長室",
+  //   },
+  //   {
+  //     id: 4,
+  //     name: "吳思涵",
+  //     company: "豐藝",
+  //     department: "行政部",
+  //   },
+  //   {
+  //     id: 5,
+  //     name: "鄭曉華",
+  //     company: "豐藝",
+  //     department: "財務部",
+  //   },
+  //   {
+  //     id: 6,
+  //     name: "徐安安",
+  //     company: "勁豐",
+  //     department: "董事長室",
+  //   },
+  //   {
+  //     id: 7,
+  //     name: "趙雅芝",
+  //     company: "勁豐",
+  //     department: "研發部",
+  //   },
+  //   {
+  //     id: 8,
+  //     name: "張偉",
+  //     company: "豐藝",
+  //     department: "研發部",
+  //   },
+  //   {
+  //     id: 9,
+  //     name: "朱美玲",
+  //     company: "勁豐",
+  //     department: "業務部",
+  //   },
+  //   {
+  //     id: 10,
+  //     name: "周明哲",
+  //     company: "勁豐",
+  //     department: "研發部",
+  //   },
+  //   {
+  //     id: 11,
+  //     name: "吳思涵",
+  //     company: "勁豐",
+  //     department: "研發部",
+  //   },
+  //   {
+  //     id: 12,
+  //     name: "李大華",
+  //     company: "豐藝",
+  //     department: "研發部",
+  //   },
+  //   {
+  //     id: 13,
+  //     name: "朱美玲",
+  //     company: "豐藝",
+  //     department: "研發部",
+  //   },
+  //   {
+  //     id: 14,
+  //     name: "徐安安",
+  //     company: "豐藝",
+  //     department: "研發部",
+  //   },
+  //   {
+  //     id: 15,
+  //     name: "王小明",
+  //     company: "勁豐",
+  //     department: "財務部",
+  //   },
+  // ]
+
+  const getGroupList = async () => {
+    try {
+      const res = await api.getGroupList(employeeInfo.group)
+      if (res.length > 0) setTeamMembers(res)
+      console.log(res.length)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <div className={styles.wrapper}>
