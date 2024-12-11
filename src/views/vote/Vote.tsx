@@ -40,9 +40,10 @@ const Vote = () => {
           </div>
           <div className={styles.subHeadTitle}>【 投票方式 】</div>
           <div className={styles.subTitle}>
-            採取線上投票方式，只有參加今日豐藝集團家庭日員工者有投票權，每位員工可線上投{" "}
-            <span style={{ fontSize: "24px", fontWeight: "bold" }}>2</span>{" "}
-            張票（員工＋眷屬）。
+            參加今日豐藝 &
+            勁豐家庭日活動的員工，均享有額外眷屬加碼投票權，每位員工可線上投{" "}
+            <span style={{ fontSize: "24px", fontWeight: "bold" }}>1</span>{" "}
+            張票。
           </div>
           <div className={styles.subHeadTitle}>【 投票時間 】</div>
           <div className={styles.subTitle}>2024/12/14 09:00-15:00 截止投票</div>
