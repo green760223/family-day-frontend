@@ -23,30 +23,18 @@ const Map = () => {
     // console.log("mapVisible", mapVisible)
   }
 
-  // const handlePopup = () => {
-  //   setPopupVisible(!popupVisible)
-  //   Swal.fire({
-  //     icon: "success",
-  //     title: "報到成功！",
-  //     text: "歡迎參加2024豐藝集團家庭日",
-  //     showConfirmButton: false,
-  //     timer: 2000,
-  //     timerProgressBar: true,
-  //   })
-  // }
-
   return (
     <div>
       <Image
-        // src='https://bababcb.webp.li/map.webp'
-        src='/map.webp'
+        src='https://promate-fd.s3.ap-northeast-1.amazonaws.com/map.webp'
+        // src='/map.webp'
         fit='contain'
         onClick={handleImageClick}
       />
 
       <ImageViewer
-        // image='https://bababcb.webp.li/map.webp'
-        image='/map.webp'
+        image='https://promate-fd.s3.ap-northeast-1.amazonaws.com/map.webp'
+        // image='/map.webp'
         visible={mapVisible}
         onClose={() => {
           setMapVisible(false)
