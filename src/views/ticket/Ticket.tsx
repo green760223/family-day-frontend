@@ -15,7 +15,7 @@ const Ticket = () => {
 
   useEffect(() => {
     checkEmployeeAuth()
-  }, [isChecked])
+  }, [])
 
   const checkEmployeeAuth = async () => {
     const token = storage.get("token")
