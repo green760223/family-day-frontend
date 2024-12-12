@@ -29,6 +29,7 @@ export default tseslint.config(
       "no-unused-vars": "off",
       "@typescript-eslint/no-namespace": "off",
       "react-refresh/only-export-components": "off",
+      "react-hooks/exhaustive-deps": "off",
     },
   }
 )

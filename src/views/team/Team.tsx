@@ -4,116 +4,66 @@ import api from "../../api"
 import { useStore } from "../../store"
 import { Card, Space } from "antd-mobile"
 import styles from "../team/Team.module.less"
+import storage from "../../utils/storage"
+import { useNavigate } from "react-router-dom"
+import res from "antd-mobile-icons/es/AaOutline"
 
 const Team = () => {
+  const navigate = useNavigate()
   const [teamMembers, setTeamMembers] = useState<Employee.Info[]>([])
-  const employeeInfo = useStore((state) => state.employeeInfo)
+  const { employeeInfo, updateEmployeeInfo, updateCell, updateTeam } =
+    useStore()
 
   useEffect(() => {
-    getGroupList()
+    checkEmployeeAuth()
   }, [])
 
-  // const teamMembers = [
-  //   {
-  //     id: 1,
-  //     name: "黃子軒",
-  //     company: "勁豐",
-  //     department: "董事長室",
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "何嘉欣",
-  //     company: "勁豐",
-  //     department: "行政部",
-  //   },
-  //   {
-  //     id: 3,
-  //     name: "林佳慧",
-  //     company: "勁豐",
-  //     department: "董事長室",
-  //   },
-  //   {
-  //     id: 4,
-  //     name: "吳思涵",
-  //     company: "豐藝",
-  //     department: "行政部",
-  //   },
-  //   {
-  //     id: 5,
-  //     name: "鄭曉華",
-  //     company: "豐藝",
-  //     department: "財務部",
-  //   },
-  //   {
-  //     id: 6,
-  //     name: "徐安安",
-  //     company: "勁豐",
-  //     department: "董事長室",
-  //   },
-  //   {
-  //     id: 7,
-  //     name: "趙雅芝",
-  //     company: "勁豐",
-  //     department: "研發部",
-  //   },
-  //   {
-  //     id: 8,
-  //     name: "張偉",
-  //     company: "豐藝",
-  //     department: "研發部",
-  //   },
-  //   {
-  //     id: 9,
-  //     name: "朱美玲",
-  //     company: "勁豐",
-  //     department: "業務部",
-  //   },
-  //   {
-  //     id: 10,
-  //     name: "周明哲",
-  //     company: "勁豐",
-  //     department: "研發部",
-  //   },
-  //   {
-  //     id: 11,
-  //     name: "吳思涵",
-  //     company: "勁豐",
-  //     department: "研發部",
-  //   },
-  //   {
-  //     id: 12,
-  //     name: "李大華",
-  //     company: "豐藝",
-  //     department: "研發部",
-  //   },
-  //   {
-  //     id: 13,
-  //     name: "朱美玲",
-  //     company: "豐藝",
-  //     department: "研發部",
-  //   },
-  //   {
-  //     id: 14,
-  //     name: "徐安安",
-  //     company: "豐藝",
-  //     department: "研發部",
-  //   },
-  //   {
-  //     id: 15,
-  //     name: "王小明",
-  //     company: "勁豐",
-  //     department: "財務部",
-  //   },
-  // ]
+  // const checkEmployeeAuth = async () => {
+  //   const token = storage.get("token")
+  //   const group = storage.getGroup()
+
+  //   if (token && group) {
+  //     const response = await getGroupList()
+  //     storage.setGroup()
+  //   } else {
+  //     navigate("/")
+  //   }
+  // }
+
+  const checkEmployeeAuth = async () => {
+    const token = storage.get("token")
+
+    if (token) {
+      await getEmployeeData()
+    } else {
+      console.log("Token does not exist. Redirecting to login page.")
+      navigate("/") // 如果 token 不存在，導航到登入頁
+    }
+  }
+
+  const getEmployeeData = async () => {
+    const res: Employee.Info = await api.getEmployeeInfo(storage.getMobile())
+    updateEmployeeInfo(res)
+    updateCell(res.mobile)
+    updateTeam(res.group)
+    storage.setGroup(res.group)
+    storage.setMobile(res.mobile)
+
+    await getGroupList()
+
+    console.log("Employee Info:", res)
+  }
 
   const getGroupList = async () => {
     try {
-      const res = await api.getGroupList(employeeInfo.group)
+      const group = storage.getGroup()
+      const res = await api.getGroupList(group)
       if (res.length > 0) setTeamMembers(res)
-      console.log(res.length)
     } catch (error) {
       console.log(error)
     }
+
+    return res
   }
 
   return (

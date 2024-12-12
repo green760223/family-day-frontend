@@ -1,30 +1,42 @@
 import { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 import { useStore } from "../../store"
 import { Card, Button, Divider } from "antd-mobile"
-// import storage from "../../utils/storage"
+import api from "../../api"
+import { Employee } from "../../types/api"
+import storage from "../../utils/storage"
 import Swal from "sweetalert2"
 import styles from "../ticket/Ticket.module.less"
 
 const Ticket = () => {
-  const [isChecked, setIsCheckd] = useState(false)
-  const employeeInfo = useStore((state) => state.employeeInfo)
-  // let ticketStatus = true
+  const navigate = useNavigate()
+  const [isChecked, setIsCheckd] = useState<boolean>(false)
+  const { employeeInfo, updateEmployeeInfo } = useStore()
 
   useEffect(() => {
-    console.log("ticketStatus", isChecked)
+    checkEmployeeAuth()
   }, [isChecked])
 
-  // const onClick = () => {
-  //   Toast.show("點擊了卡片")
-  // }
+  const checkEmployeeAuth = async () => {
+    const token = storage.get("token")
 
-  // const onHeaderClick = () => {
-  //   Toast.show("點擊了卡片Header區域")
-  // }
+    if (token) {
+      await getEmployeeInfo()
+    } else {
+      navigate("/")
+    }
+  }
 
-  // const onBodyClick = () => {
-  //   Toast.show("點擊了卡片Body區域")
-  // }
+  const employeeCheckIn = async () => {
+    const res: Employee.Info = await api.checkInEmployee(storage.getMobile())
+    return res
+  }
+
+  const getEmployeeInfo = async () => {
+    const res: Employee.Info = await api.getEmployeeInfo(storage.getMobile())
+    setIsCheckd(res.is_checked)
+    updateEmployeeInfo(res)
+  }
 
   return (
     <div className={styles.wrapper}>
@@ -59,16 +71,6 @@ const Ticket = () => {
               </div>
 
               <Divider direction='vertical' />
-
-              {/* 博愛 */}
-              {/* <div className={styles.categoryItem}>
-                <div className={styles.categoryItemTitle}>博愛</div>
-                <div className={styles.categoryItemText}>
-                  {employeeInfo.family_elderly}
-                </div>
-              </div>
-
-              <Divider direction='vertical' /> */}
 
               {/* 幼童 */}
               <div className={styles.categoryItem}>
@@ -105,30 +107,59 @@ const Ticket = () => {
             color='primary'
             onClick={() => {
               Swal.fire({
-                title: "兌換票券",
+                title: "請輸入驗證碼兌換票券",
                 input: "password",
-                inputLabel: "請輸入活動驗證碼",
+                inputLabel: "請確實核對票券數量，兌換後恕不補發！",
                 inputAttributes: {
                   autocapitalize: "off",
+                  autocomplete: "off",
                 },
                 icon: "question",
                 showCancelButton: true,
                 confirmButtonText: "確認",
                 cancelButtonText: "取消",
-              }).then((result) => {
+                // preConfirm: async () => {
+                //   try {
+                //     const res = await employeeCheckIn()
+                //     if (res.is_checked) {
+                //       setIsCheckd(true)
+                //     }
+                //   } catch (error) {
+                //     console.error("Unexpected error:", error)
+                //   }
+                // },
+              }).then(async (result) => {
                 console.log("result", result)
 
                 if (result.isConfirmed && result.value === "1214") {
-                  Swal.fire({
-                    icon: "success",
-                    text: "票券兌換成功！",
-                    confirmButtonText: "知道了",
-                  })
-                  setIsCheckd(true)
+                  try {
+                    const ticket = await employeeCheckIn()
+                    if (ticket.is_checked) {
+                      setIsCheckd(true)
+                      Swal.fire({
+                        icon: "success",
+                        text: "票券兌換成功！",
+                        confirmButtonText: "知道了",
+                      })
+                    } else {
+                      Swal.fire({
+                        icon: "error",
+                        text: "票券兌換失敗，請洽工作人員！",
+                        confirmButtonText: "知道了",
+                      })
+                    }
+                  } catch (error) {
+                    console.error("Unexpected error:", error)
+                    Swal.fire({
+                      icon: "error",
+                      text: "兌換失敗，請洽工作人員！",
+                      confirmButtonText: "知道了",
+                    })
+                  }
                 } else if (result.isConfirmed && result.value !== "1214") {
                   Swal.fire({
                     icon: "error",
-                    text: "活動驗證碼錯誤！",
+                    text: "驗證碼輸入錯誤，請重新輸入或洽工作人員！",
                     confirmButtonText: "知道了",
                   })
                 }

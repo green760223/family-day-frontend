@@ -83,4 +83,27 @@ export default {
   removeTicket() {
     this.remove("ticket")
   },
+
+  /**
+   * Set group to local storage
+   *
+   * @param {string} ticket
+   */
+  setGroup(group: string) {
+    this.set("group", group)
+  },
+  /**
+   * Get ticket from local storage
+   *
+   * @returns {string | null}
+   */
+  getGroup() {
+    return this.get("group")
+  },
+  /**
+   * Remove ticket from local storage
+   */
+  removeGroup() {
+    this.remove("group")
+  },
 }

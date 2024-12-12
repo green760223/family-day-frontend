@@ -4,7 +4,6 @@ import Swal from "sweetalert2"
 
 const Map = () => {
   const [mapVisible, setMapVisible] = useState(false)
-  // const [popupVisible, setPopupVisible] = useState(true)
 
   useEffect(() => {
     Swal.fire({

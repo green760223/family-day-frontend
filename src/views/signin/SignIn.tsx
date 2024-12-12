@@ -2,6 +2,7 @@ import { Form, Input, Button } from "antd-mobile"
 import { MobileOutlined } from "@ant-design/icons"
 import styles from "./SignIn.module.less"
 import { useNavigate } from "react-router-dom"
+// import { useEffect } from "react"
 import Swal from "sweetalert2"
 import api from "../../api"
 import { Login, Result } from "../../types/api"
@@ -11,8 +12,19 @@ import { useStore } from "../../store"
 const SignIn = () => {
   const navigate = useNavigate()
   const MOBILE_LENGTH = 10
-  const updateToken = useStore((state) => state.updateToken)
-  const updateCell = useStore((state) => state.updateCell)
+  const { updateToken, updateCell } = useStore()
+
+  // useEffect(() => {
+  //   checkEmployeeAuth()
+  // }, [])
+
+  // const checkEmployeeAuth = async () => {
+  //   const token = storage.get("token")
+  //   if (token) {
+  //     navigate("/home")
+  //     console.log("Token exist:", token)
+  //   }
+  // }
 
   // Login function
   const onLoginFinished = async (values: Login.Params) => {
@@ -31,11 +43,10 @@ const SignIn = () => {
     // Call the login API
     try {
       const data: Result = await api.login(values)
-      console.log("data", data.access_token)
       storage.set("token", data.access_token)
+      storage.setMobile(values.mobile)
       updateToken(data.access_token)
       updateCell(values.mobile)
-      storage.setMobile(values.mobile)
 
       await Swal.fire({
         icon: "success",

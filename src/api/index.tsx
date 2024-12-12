@@ -18,6 +18,10 @@ export default {
     return request.get<Employee.Info[]>(`/employee/group/members/${params}`)
   },
 
+  checkInEmployee(params: string) {
+    return request.post<Employee.Info>(`/employee/${params}/check-in`)
+  },
+
   // getUserInfo() {
   //   return request.get<User.UserInfo[]>("/users")
   // },
