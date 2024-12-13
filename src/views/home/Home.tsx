@@ -11,7 +11,9 @@ import config from "../../config"
 const Home = () => {
   const navigate = useNavigate()
   const { updateEmployeeInfo, updateCell, updateTeam } = useStore()
-  const [noticeText, setNoticeText] = useState<string>()
+  const [noticeText, setNoticeText] = useState<string>(
+    "親愛的同仁們，請記得選出您最喜歡的聖誕卡片設計，投票截止時間至12月14日下午3點整！"
+  )
   // const noticeText =
   //   "親愛的同仁們，請記得選出您最喜歡的聖誕卡片設計，投票截止時間至12月14日下午3點整！"
   // const imgsURL = [
