@@ -40,15 +40,6 @@ const Map = () => {
           setMapVisible(false)
         }}
       />
-
-      {/* <Popup
-        visible={popupVisible}
-        onMaskClick={() => {
-          setPopupVisible(false)
-        }}
-        bodyStyle={{ height: "10vh" }}>
-        <div>Hello</div>
-      </Popup> */}
     </div>
   )
 }

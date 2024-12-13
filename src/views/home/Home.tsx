@@ -139,7 +139,8 @@ const Home = () => {
         </Swiper> */}
         <div>
           <Image
-            src='/logo/main.webp'
+            // src='/logo/main.webp'
+            src='https://promate-fd.s3.ap-northeast-1.amazonaws.com/main.webp'
             fit='cover'
             style={{ marginLeft: "20px", marginTop: "30px" }}
           />
