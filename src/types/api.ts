@@ -37,6 +37,15 @@ export namespace Employee {
   }
 }
 
+export namespace Notification {
+  export interface Info {
+    id: string
+    title: string
+    message: string
+    created_at: string
+  }
+}
+
 // export namespace Register {
 //   export interface Params extends Login.Params {
 //     email: string

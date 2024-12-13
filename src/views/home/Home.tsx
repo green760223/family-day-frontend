@@ -1,9 +1,9 @@
 import styles from "./Home.module.less"
 import { NoticeBar, Image, Grid } from "antd-mobile"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import api from "../../api"
-import { Employee } from "../../types/api"
+import { Employee, Notification } from "../../types/api"
 import { useStore } from "../../store"
 import storage from "../../utils/storage"
 import config from "../../config"
@@ -11,8 +11,9 @@ import config from "../../config"
 const Home = () => {
   const navigate = useNavigate()
   const { updateEmployeeInfo, updateCell, updateTeam } = useStore()
-  const noticeText =
-    "親愛的同仁們，請記得選出您最喜歡的聖誕卡片設計，投票截止時間至12月14日下午3點整！"
+  const [noticeText, setNoticeText] = useState<string>()
+  // const noticeText =
+  //   "親愛的同仁們，請記得選出您最喜歡的聖誕卡片設計，投票截止時間至12月14日下午3點整！"
   // const imgsURL = [
   //   "https://picsum.photos/350/200?random=1",
   //   "https://picsum.photos/350/200?random=2",
@@ -91,10 +92,16 @@ const Home = () => {
 
     if (token) {
       await getEmployeeData()
+      await getLatestNotification()
     } else {
       console.log("Token does not exist. Redirecting to login page.")
       navigate("/") // 如果 token 不存在，導航到登入頁
     }
+  }
+
+  const getLatestNotification = async () => {
+    const res: Notification.Info = await api.getLatestNotification()
+    setNoticeText(res.message)
   }
 
   const getEmployeeData = async () => {
@@ -147,6 +154,7 @@ const Home = () => {
               "--border-color": "white",
               "--text-color": "grey",
               "--font-size": "16px",
+              letterSpacing: "1px",
             }}
           />
         </div>

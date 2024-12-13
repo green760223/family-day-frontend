@@ -1,5 +1,5 @@
 import request from "../utils/request"
-import { Login, Result, Token, Employee } from "../types/api"
+import { Login, Result, Token, Employee, Notification } from "../types/api"
 
 export default {
   login(params: Login.Params) {
@@ -20,6 +20,10 @@ export default {
 
   checkInEmployee(params: string) {
     return request.post<Employee.Info>(`/employee/${params}/check-in`)
+  },
+
+  getLatestNotification() {
+    return request.get<Notification.Info>("/employee/notifications/latest")
   },
 
   // getUserInfo() {
